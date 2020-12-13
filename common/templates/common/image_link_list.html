@@ -1,0 +1,13 @@
+{% if link_list %}
+<div class="image-link-list">
+    <div class="container-fluid">
+        <div class="row">
+        {% for link in link_list %}
+            <div class="col-sm-12 col-md-4" style="background-image:url('{{ link.image.url }}')">
+                <a href="{{ link.url }}" {% if link.is_external %}target="_blank"{% endif %}>{{ link.title }}</a>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}

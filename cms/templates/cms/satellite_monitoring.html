@@ -1,0 +1,68 @@
+{% extends 'layout/base.html' %}
+{% load crispy_forms_tags block_tags %}
+
+{% block title %}Monitoreo Satelital |{% endblock %}
+
+{% block header_bg %}{% with 'contact'|get_fixed_block as block %}{{ block.image.url }}{% endwith %}{% endblock %}
+
+{% block breadcrumbs %}
+<div class="bg-gray-quaternary">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="active">Monitoreo Satelital</li>
+        </ol>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="contact-form">
+    <div class="toll-free-banner text-center">
+        <h5><span class="gp-img-md-yellow-phone icon"></span> LÍNEA GRATUITA NACIONAL <span>{{ config.PHONE_CONTACT }}</span></h5>
+    </div>
+    <div class="flex-link-list">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 {% if config.CHAT_URL %}col-sm-4{% else %}col-sm-6{% endif %} email">
+                    <a href="mailto:{{ email_contact }}" class="fluid-content">
+                        <h6>CORREO ELECTRÓNICO</h6>
+                        <span>{{ email_contact }}</span>
+                    </a>
+                </div>
+                {% if config.CHAT_URL %}
+                <div class="col-xs-12 col-sm-4 chat">
+                    <a class="js-chat-popup fluid-content" href="{{ config.CHAT_URL }}">
+                        <h6>CHAT</h6>
+                        <span>Comuníquese con nosotros</span>
+                    </a>
+                </div>
+                {% endif %}
+                <div class="col-xs-12 {% if config.CHAT_URL %}col-sm-4{% else %}col-sm-6{% endif %} offices">
+                    <a href="{% url 'office_list' %}" class="fluid-content">
+                        <h6>NUESTRAS SEDES</h6>
+                        <span>Encuentre la sede más cercana</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-sm-12">
+            <p>Diligencie el formulario a continuación para solicitar su
+                servicio de monitoreo satelital.</p>
+
+            <p class="form-info">Todos los campos marcados con asterisco (*) son obligatorios.</p>
+            <form class="contact-form" method="post">
+                {% crispy form %}
+
+                <button type="submit" class="yellow-link-box">
+                    Enviar <span class="gp-img-xs-black-circle-arrow icon"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+    {% get_link_list 'contact' %}
+</div>
+{% endblock %}

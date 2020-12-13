@@ -1,0 +1,29 @@
+{% load static %}
+{% if page.related_files.all or page.related_links.all %}
+
+    <div class="related-links">
+        <div class="container">
+        {% for related_file in page.related_files.all %}
+            <div class="related-link">
+                <a class="yellow-link-box" target="_blank" href="{{ related_file.image.url }}">
+                    <span>{{ related_file.title }}</span>
+                    <svg class="icon">
+                        <use xlink:href="{% static 'svg/icons.svg' %}#download-btn"></use>
+                    </svg>
+                </a>
+            </div>
+        {% endfor %}
+
+        {% for related_link in page.related_links.all %}
+            <div class="related-link">
+                <a class="yellow-link-box" href="{{ related_link.url }}">
+                    <span>{{ related_link.title }}</span>
+                    <svg class="icon">
+                        <use xlink:href="{% static 'svg/icons.svg' %}#arrow-btn"></use>
+                    </svg>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endif %}

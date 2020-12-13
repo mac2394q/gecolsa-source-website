@@ -1,0 +1,56 @@
+.redactor-editor ul {
+    list-style: inherit;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+.redactor-editor ol {
+    list-style: inherit;
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+
+.redactor-editor table tbody tr th:first-child,
+.redactor-editor table tbody tr td:first-child {
+    border-left: 1px solid #DDD !important;
+}
+
+.redactor-editor table tbody tr:last-child th,
+.redactor-editor table tbody tr:last-child td {
+    border-bottom: 1px solid #DDD !important;
+}
+
+.redactor-dropdown .redactor-formatting-span-year-box {
+    color: #000;
+    border-right: 2px solid #FDBF00;
+    border-top: 3px solid #FDBF00;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.redactor-dropdown .redactor-formatting-p-table-header {
+    background-color: #ccc;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.redactor-editor .year-box {
+    border-right: 2px solid #FDBF00;
+    border-bottom: 3px solid #FDBF00;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.redactor-editor blockquote {
+    padding: 30px;
+    margin: 30px 0px;
+    background-color: #F0F0F0;
+}
+
+.redactor-editor .table-header {
+    background-color: #CCC;
+    padding: 10px 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0;
+}

@@ -1,0 +1,9 @@
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="{{ get_absolute_url }}">Industrias</a>
+    <span class="visible-xs visible-sm gp-img-icon-plus"></span>
+    <ul class="dropdown-menu" role="menu">
+    {% for second_level_item in equipmentindustry_list.all %}
+        <li><a href="{{ second_level_item.get_absolute_url }}">{{ second_level_item.title }}</a></li>
+    {% endfor %}
+    </ul>
+</li>

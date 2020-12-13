@@ -1,0 +1,1056 @@
+// Pages
+//
+// 1. Page detail
+// 2. Office list
+// 3. Registration
+// 4. Contact form
+// 5. Search results
+// -----------------------
+
+// Page detail item
+// --------------------
+.gp-page-item
+    padding: 60px 0px
+    border-bottom: 1px solid $gray-quaternary
+    @include clearfix
+
+    .gird-2
+        @include grid-container
+        @include grid-collapse
+
+        .col-grid-2
+            position: relative
+            @include grid-column(12)
+
+            @include grid-media($tablet)
+                &:first-child
+                    @include grid-column(4)
+
+                &:last-child
+                    padding-left: 20px
+                    @include grid-column(8)
+
+    &.even
+        background-color: $gray-primary
+        text-align: left
+
+        @include grid-media($tablet)
+            text-align: right
+
+        .gird-2
+            .col-grid-2
+                @include grid-media($tablet)
+                    &:first-child
+                        @include grid-shift(8)
+
+                    &:last-child
+                        padding-left: 0px
+                        padding-right: 20px
+                        @include grid-shift(-4)
+
+    &:last-child
+        border: none
+
+    .lazy-page-img
+        width: 268px
+        height: 178px
+        line-height: 178px
+        position: relative
+        overflow: hidden
+
+        img
+            position: absolute
+            left: 50%
+            top: 50%
+            -webkit-transform: translate(-50%,-50%)
+            -ms-transform: translate(-50%,-50%)
+            transform: translate(-50%,-50%)
+
+            &.horizontal_image
+                height: 100%
+                width: auto
+
+            &.vertical_image
+                width: 100%
+                height: auto
+
+    img
+        margin-bottom: 10px
+        max-width: 100%
+
+    h5
+        border-bottom: 2px solid $yellow-primary
+
+        a
+            font-size: 20px
+
+            @include grid-media($desktop-xl)
+                font-size: 26px
+
+    .yellow-link-box
+        display: inline-block
+
+    .year-box
+        font-family: 'univers67', sans-serif
+        font-weight: bold
+        font-size: 30px
+        padding: 5px
+        line-height: 30px
+        border-bottom: 3px solid $yellow-primary
+        display: inline-block
+        position: absolute
+        top: -65px
+        left: 10px
+        background-color: $black-primary
+        color: $white-primary
+
+        @include grid-media($tablet)
+            background-color: transparent
+            color: $black-primary
+            line-height: 40px
+            font-size: 40px
+
+    ul
+        list-style: none
+        padding: 0
+        margin: 0
+
+        li
+            padding-left: 1em
+            text-indent: -.7em
+
+        li:before
+            content: "• "
+            color: $yellow-primary
+
+.pages-list-group
+    width: 100%
+
+    > a:first-child
+        @include border-top-radius(0)
+        @include border-bottom-radius(0)
+
+    &.show-children
+
+    .list-group-item
+        &:first-child, &:last-child
+            @include border-top-radius(0px)
+            @include border-bottom-radius(0px)
+
+a.gp-accordion-second-level
+    color: $gray-tertiary
+    background-color: $gray-quaternary
+    text-transform: uppercase
+    font-family: 'univers67', sans-serif
+    padding: 9px 20px
+
+    &:hover
+        background-color: $black-primary
+        color: $white-primary
+
+    &.active
+        color: $white-primary
+        background-color: $black-primary
+        border: none
+        border-bottom: 2px solid $yellow-primary
+
+        &:hover
+            background-color: $black-primary
+            border-color: $yellow-primary
+
+a.gp-accordion-third-level
+    color: $gray-tertiary
+    background-color: $white-primary
+    padding: 9px 20px
+
+    &:hover
+        background-color: $white-primary
+        color: $black-primary
+
+    &.active
+        color: $white-primary
+        background-color: $gray-tertiary
+        border-color: $gray-tertiary
+
+        &:hover
+            color: $white-primary
+            background-color: $gray-tertiary
+            border-color: $gray-tertiary
+
+a.gp-accordion-forth-level
+    color: $gray-tertiary
+    background-color: $white-primary
+    padding: 9px 20px 9px 40px
+    position: relative
+
+    &:hover
+        background-color: $white-primary
+        color: $black-primary
+
+    &.active
+        color: $black-primary
+        background-color: $yellow-primary
+        border-color: $yellow-primary
+
+        &:hover
+            color: $black-primary
+            background-color: $yellow-primary
+            border-color: $yellow-primary
+
+        &:before
+            content: ""
+            width: 21px
+            background-color: $white-primary
+            border-top: 1px solid $gray-senary
+            border-bottom: 1px solid $gray-senary
+            border-left: 1px solid $gray-senary
+            height: calc(100% + 2px)
+            @include position(absolute, -1px null null -1px)
+
+.page-detail
+    .navegation-menu
+        max-width: 700px
+        margin: 20px auto
+
+    .container
+        .gp-description
+            img
+                width: 100%
+
+    .general-specifications
+        text-align: center
+
+    .contact-form
+        margin: 0 auto
+
+        @include grid-media($tablet)
+            width: 50%
+
+    .accordion-page-container
+        @include clearfix
+
+        .col-page-accordion
+            float: left
+            padding-top: 40px
+
+            &:first-child
+                width: 260px
+                display: none
+
+                @include grid-media($desktop)
+                    display: block
+
+            &:last-child
+                width: 100%
+                padding-left: 0px
+
+                @include grid-media($desktop)
+                    padding-left: 40px
+                    width: calc(100% - 260px)
+
+            .gp-page-item
+                &.even
+                    background-color: $white-primary
+
+        .navegation-menu
+            @include grid-media($desktop)
+                max-width: 800px
+
+    .gp-page-item
+        @include grid-media($tablet)
+            img
+                margin-bottom: 0
+
+            .year-box
+                margin-left: -317px
+                left: 50%
+                top: 0
+                position: absolute
+                border-right: 2px solid $yellow-primary
+                word-break: break-all
+                width: 60px
+                margin-top: 0
+
+        @include grid-media($desktop)
+            .year-box
+                margin-left: -365px
+
+        &.even
+            .year-box
+                @include grid-media($tablet)
+                    margin-left: 255px
+
+                @include grid-media($desktop)
+                    margin-left: 305px
+
+            h5:after
+                float: none
+                margin-left: 0px
+
+                @include grid-media($tablet)
+                    float: right
+                    margin-left: 100%
+
+        h5
+            border-bottom: none
+            margin-bottom: 0
+            padding-bottom: 0
+            margin-top: 20px
+            line-height: 130%
+
+            @include grid-media($tablet)
+                margin-top: 0px
+
+            &:after
+                background-color: $yellow-primary
+                content: ""
+                display: block
+                width: 55px
+                height: 3px
+                margin: 10px 0 20px
+
+        &.with-year
+            @include grid-media($tablet)
+                img
+                    margin-top: 100px
+
+            h5
+                border: none
+                @include grid-media($tablet)
+                    margin-top: 0
+
+                &:after
+                    display: none
+
+        &.gp-page-item-alternate:nth-child(even)
+            h5:after
+                float: right
+                margin-left: 100%
+
+            .year-box
+                right: 10px
+
+                @include grid-media($tablet)
+                    margin-left: 250px
+                    border-right: none
+                    border-left: 2px solid $yellow-primary
+
+    .slider-container .carousel-control &.right
+        left: calc(100% - 143px)
+
+    .image-zoom
+        @include position(absolute, null null 10px 10px)
+
+// Page detail
+// -------------
+.page-detail
+    overflow: hidden
+
+    a .icon
+        display: inline-block
+
+    .gp-page-item .container
+        max-width: 768px
+        position: relative
+
+        @include grid-media($desktop)
+            max-width: 900px
+
+    &.with-accordion
+        .gp-description
+            padding: 0px
+
+        .gp-page-detail
+            .container
+                @include grid-media($desktop)
+                    max-width: 800px
+
+    .gp-list-description
+        padding: 50px 0
+
+        @include grid-media($desktop)
+            margin-left: 20px
+
+        .container
+            max-width: 480px
+
+    .gp-page-text a
+        color: $red-secondary
+
+        &:hover
+            color: $red-secondary
+
+    .gp-description
+        padding: 0px 0px 40px
+
+        &.with-list
+            border-bottom: 1px solid $gray-quinary
+
+        .container
+            max-width: 700px
+            padding: 0px
+
+        .related-links
+            padding: 40px 0
+
+        blockquote
+            margin: 40px 0
+            padding: 90px 2350px
+            width: 5000px
+            margin-left: -2500px
+            position: relative
+            left: 50%
+            text-align: center
+            background: $gray-primary
+            font-size: 24px
+            font-family: 'univers67', sans-serif
+            text-transform: uppercase
+
+            @include grid-media($tablet)
+                padding: 90px 2150px
+
+        .has-background
+            margin: 20px 0
+            padding: 20px 2350px
+            width: 5000px
+            margin-left: -2500px
+            position: relative
+            left: 50%
+            text-align: center
+
+            @include grid-media($tablet)
+                padding: 20px 2260px
+
+    .carousel-container
+        max-width: 800px
+        margin: 40px auto 80px
+        position: relative
+
+    .slider-container
+        .carousel-control
+            margin-top: -20px
+
+        .slick-dots
+            bottom: -40px
+
+    .carousel-indicators
+        bottom: -65px
+
+        li
+            width: 30px
+            border-bottom: 3px solid $black-primary
+            border-left: none
+            border-right: none
+            margin: 0 2px
+            border-radius: 0
+
+        .active
+            border-bottom: 3px solid $yellow-primary
+
+    .related-link a
+        display: inline-block
+        margin: 5px 0
+
+    .table-header
+        background: $gray-quaternary
+        margin-bottom: 0
+        padding: 2px
+        text-align: center
+        text-transform: uppercase
+        color: $white-primary
+        font-family: 'univers67', sans-serif
+
+    table
+        width: 100%
+        border: 1px solid $gray-quinary
+
+        tbody
+            tr
+                background-color: $white-primary
+                text-align: center
+
+                &:first-child td
+                    padding: 10px 5px
+                    background-color: $white-primary
+                    color: $black-primary
+                    font-weight: bold
+
+                &:nth-child(2) td
+                    padding: 15px 5px 0
+
+                &:last-child td
+                    padding: 0 5px 15px
+
+// Office list.
+// ---------------
+.office-list
+    > .container
+        width: auto
+        padding: 0
+
+        @include grid-media($desktop)
+            padding: 0 15px
+            width: 970px
+
+        @include grid-media($desktop-xl)
+            width: 950px
+
+        .city-selector
+            margin: 30px auto
+            width: 300px
+
+            .form-control, .dropdown-toggle
+                background-color: transparent
+
+            .dropdown-toggle
+                border: 1px solid $gray-quinary
+                background-color: rgba(0,0,0,0)
+                @include border-top-radius(0)
+                @include border-bottom-radius(0)
+
+            .bootstrap-select
+                .caret:after
+                    position: absolute
+                    content: ""
+                    left: -17px
+                    top: -19px
+                    height: 33px
+                    width: 33px
+                    background: $yellow-primary
+                    z-index: -1
+
+                &.dropup .caret:after
+                    top: -14px
+
+        .office-list-boxes
+            margin-bottom: 40px
+
+            .office
+                border-bottom: 1px solid $gray-quinary
+                padding: 25px 35px
+
+                &:first-child
+                    border-top: 1px solid $gray-quinary
+
+                p:first-child
+                    span:first-child
+                        margin-right: 5px
+
+                    span
+                        display: inline-block
+
+                    .gecolsa, .rental
+                        font-weight: bold
+                        font-family: 'univers67', sans-serif
+
+                    .gecolsa
+                        text-transform: uppercase
+                        color: $yellow-primary
+
+                    .rental
+                        color: $red-primary
+
+                strong
+                    color: $black-primary
+
+                p
+                    font-size: 15px
+
+                @include grid-media($desktop)
+                    margin-left: -1px
+                    margin-bottom: -1px
+                    height: 285px
+                    border: 1px solid $gray-quinary
+
+                    span
+                        display: block
+
+                    p:last-child
+                        margin-top: 35px
+
+        .map-wrapper
+            margin-bottom: 40px
+
+            > div
+                border: 1px solid $gray-quinary
+
+// Registration.
+// ------------------
+.registration-form
+    .container
+        max-width: 750px
+
+    .form-control
+        border: 1px solid $gray-quinary
+        color: $gray-quinary
+        box-shadow: none
+        @include border-top-radius(0)
+        @include border-bottom-radius(0)
+
+    .form-group label
+        font-weight: normal
+
+    .controls
+        width: 60%
+        float: right
+
+    .form-title
+        border-top: 1px solid $gray-quinary
+        margin-top: 40px
+        margin-bottom: 40px
+
+        p
+            margin: 0
+            padding: 10px 0
+            color: $black-primary
+
+    .form-info
+        color: $black-primary
+        margin-bottom: 50px
+
+    form
+        margin-bottom: 50px
+        color: $gray-senary
+
+        button
+            @include border-top-radius(0)
+            @include border-bottom-radius(0)
+
+        label
+            color: $black-primary
+            max-width: 100px
+
+            @include grid-media($tablet)
+                max-width: 300px
+
+    .form-group
+        &:after, &:before
+            content: " "
+            display: table
+
+        &:after
+            clear: both
+
+        &:nth-child(4)
+            margin-bottom: 40px
+
+
+// Contact form
+// -----------------
+
+.new-category ,.used-equipment-detail, .page-detail
+    .contact-form
+        input
+            &.terms
+                margin: 10px 0px 20px 0px
+
+        label
+           margin: 15px 0px 0px 0px
+
+        .yellow-link-box
+            width: 100%
+
+.contact-form
+    .contact-product
+        margin: 0px auto 40px
+        padding: 60px 0px
+        border-bottom: 1px solid $gray-senary
+
+        .container
+            max-width: 320px
+
+            @include grid-media($tablet)
+                max-width: 700px
+
+        h5
+            color: $black-primary
+            font-size: 26px
+
+        h6
+            text-align: center
+            font-size: 14px
+            margin-top: 0px
+            margin-bottom: 20px
+
+        .image
+            border: 1px solid $gray-senary
+            padding: 20px
+
+            a
+                display: block
+
+            img
+                width: 100%
+
+    p
+        line-height: 1.8
+
+    .toll-free-banner
+        background-image: url(../img/contact-toll-free-bg.png)
+        background-color: $black-primary
+        padding: 40px 0
+        background-size: cover
+        background-position: 50%
+
+        h5
+            font-family: 'univers67', sans-serif
+            color: $white-primary
+
+            span
+                color: $yellow-primary
+
+    .flex-link-list
+        .col-sm-4, .col-sm-6
+            padding: 0px
+
+        .email, .chat, .offices
+            background-size: cover
+            background-position: 50%
+
+        .email
+            background-image: url('../img/contact-email.jpg')
+
+        .chat
+            background-image: url('../img/contact-chat.jpg')
+
+        .offices
+            background-image: url('../img/contact-offices.jpg')
+
+        .fluid-content
+            height: 120px
+            border: 1px solid white
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+
+            text-align: center
+            text-decoration: none
+
+            &:hover
+                opacity: .7
+
+            span, h6
+                font-family: 'univers67', sans-serif
+                font-weight: bold
+
+            span
+                text-decoration: none
+                color: $yellow-primary
+                font-size: 18px
+
+            h6
+                margin-top: 0
+                color: $white-primary
+                margin-bottom: 0
+
+    .form-info
+        color: $black-primary
+        margin-bottom: 20px
+        margin-top: 20px
+        font-size: 13px
+
+    > .container
+        max-width: 700px
+        padding: 40px 20px
+
+    .form-group
+        &:after,
+        &:before
+            content: " "
+            display: table
+
+        &:after
+            clear: both
+
+    .form-group:nth-child(11)
+        .controls
+            width: 100%
+
+    .autocomplete-light-widget
+        width: 100%
+
+        .form-control
+            width: 100%
+
+    .sidebar-box
+        &.chat
+            background-image: url('../img/chat-box-bg.png')
+
+            a
+                color: $white-primary
+
+    .icon
+        display: inline-block
+        margin-bottom: -4px
+
+// Search results
+// ---------------
+.search
+    .result-text
+        border-bottom: 1px solid $gray-tertiary
+        padding-bottom: 10px
+        font-size: 15px
+        margin-top: 40px
+
+    .no-results
+        h4
+            font-family: 'univers67', sans-serif
+            text-transform: uppercase
+
+        img
+            margin-bottom: 40px
+
+    .listing-stripped
+        > div
+            padding: 50px 0
+            border-bottom: 1px solid $gray-tertiary
+
+            > .container
+                max-width: 800px
+
+            &:nth-last-child(2)
+                border: none
+
+            &.row:nth-child(even)
+                background-color: $gray-secondary
+
+            .title
+                font-family: 'univers67', sans-serif
+                text-transform: uppercase
+                margin-top: 0
+                color: $black-primary
+
+            .image
+                width: 220px
+                margin-bottom: 20px
+
+                @include grid-media($tablet)
+                    margin-bottom: 0
+
+                img
+                    border: 1px solid $gray-tertiary
+
+    .go-back-link
+        margin-top: 15px
+        display: inline-block
+        color: $gray-senary
+        font-size: 15px
+        font-family: 'univers67', sans-serif
+
+// Paginator styles
+// -------------------
+.pager
+    border-top: 1px solid $gray-tertiary
+    padding-top: 20px
+
+    li
+        > a
+            border: none
+            color: $black-primary
+
+        > a, > span
+            padding: 3px 10px
+            @include border-top-radius(50%)
+            @include border-bottom-radius(50%)
+
+        &.active > a
+            background-color: $red-primary
+            color: $white-primary
+
+        &.first
+            float: left
+
+        &.last
+            float: right
+
+// Search form
+// -----------------
+.search-form
+    position: absolute
+    padding: 40px 0
+    z-index: 2
+    right: 0px
+    left: 0px
+    background-color: $gray-quaternary
+    display: none
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3)
+
+    .form-group
+        width: 100%
+        position: relative
+
+    .controls
+        position: relative
+        border-bottom: 1px solid #6F6E6E
+
+        > span
+            position: absolute
+            top: 5px
+            left: 0
+            opacity: 0.4
+
+    .form-control
+        width: 100%
+        background-color: transparent
+        font-size: 23px
+        border: none
+        display: block
+        color: $black-primary
+        box-shadow: none
+
+        @include grid-media($tablet)
+            margin-left: 30px
+
+    .hide-search
+        position: absolute
+        cursor: pointer
+        right: 0
+        top: 2px
+        font-size: 20px
+
+        &:hover
+            opacity: .5
+
+
+// 500 page
+// ----------------
+.error-500
+    p.title
+        @include grid-media($desktop)
+            margin-left: 411px
+
+        .main-background
+            @include grid-media($desktop)
+                background-image: url(../img/desktop-500.png)
+                width: 992px
+
+    .description
+        @include grid-media($tablet)
+            margin-top: -150px
+            margin-left: 250px
+            text-align: left
+
+            h1
+                font-size: 41px
+
+            h2
+                font-size: 32px
+
+        @include grid-media($desktop)
+            margin-left: 550px
+
+        @include grid-media($desktop-xl)
+            margin-left: 620px
+
+    .main-background
+        background-image: url(../img/mobile-500.png)
+        background-size: cover
+        background-position: 50%
+        background-repeat: no-repeat
+        height: 190px
+        width: 320px
+        margin: -77px auto 0
+
+        @include grid-media($tablet)
+            background-image: url(../img/tablet-500.png)
+            margin: -88px auto 0
+            width: 750px
+
+    p.title
+        font-family: 'univers67', sans-serif
+        font-weight: bold
+        font-size: 105px
+        padding-right: 35px
+        color: $black-primary
+
+        @include grid-media($tablet)
+            margin-left: 115px
+            text-align: left
+
+        @include grid-media($desktop-xl)
+            margin-left: 485px
+
+    h1, h2
+        font-family: 'univers67', sans-serif
+
+    h1
+        font-weight: 500
+
+    .go-back-link
+        margin-top: 5px
+        margin-bottom: 10px
+        display: inline-block
+        color: $gray-senary
+        font-size: 15px
+        font-family: 'univers67', sans-serif
+
+
+// 404 page
+// -----------
+.error-404
+    .description
+        @include grid-media($tablet)
+            max-width: 500px
+            margin: 0 auto
+
+        @include grid-media($desktop)
+            max-width: 500px
+            margin: 0 auto
+
+        @include grid-media($desktop-xl)
+            max-width: 610px
+
+    .main-background
+        background-image: url(../img/mobile-404.png)
+        background-size: cover
+        background-position: 50%
+        background-repeat: no-repeat
+        height: 51px
+        width: 320px
+        margin: -95px auto 0
+
+        @include grid-media($tablet)
+            background-image: url(../img/tablet-404.png)
+            margin: -160px auto 0
+            width: 730px
+            height: 113px
+
+        @include grid-media($desktop)
+            background-image: url(../img/desktop-404.png)
+            margin: -160px auto 0
+            width: 955px
+            height: 113px
+
+        @include grid-media($desktop-xl)
+            width: 998px
+
+    p.title
+        font-family: 'univers67', sans-serif
+        font-weight: bold
+        font-size: 105px
+        color: $black-primary
+
+        @include grid-media($tablet)
+            margin-top: 30px
+
+    h1, h2
+        font-family: 'univers67', sans-serif
+
+    h1
+        font-weight: 500
+
+        @include grid-media($desktop-xl)
+            font-size: 62px
+
+    h2
+        @include grid-media($desktop-xl)
+            font-size: 42px
+
+    .go-back-link
+        margin-top: 5px
+        margin-bottom: 10px
+        display: inline-block
+        color: $gray-senary
+        font-size: 15px
+        font-family: 'univers67', sans-serif

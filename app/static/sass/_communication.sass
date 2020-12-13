@@ -1,0 +1,155 @@
+// Communication detail.
+// -------------------------
+.communication-detail
+    .comunication-container
+        max-width: 700px
+        margin: auto
+
+        &:last-child
+            margin-bottom: 40px
+
+        .back-link
+            font-weight: bold
+            color: $black-primary
+            margin-top: 40px
+            display: inline-block
+
+        p
+            img
+                margin: 40px 0px
+                width: 100%
+
+    .carousel-control
+        margin-top: -20px
+
+    .table
+        margin: 40px 0
+
+        thead td
+            border: none
+            background-color: $gray-quinary
+            color: white
+            padding: 5px
+            text-align: center
+            font-weight: bold
+
+        tbody td
+            border: none
+            font-weight: normal
+            vertical-align: middle
+            padding: 10px 5px
+
+        tbody tr:first-child
+            td
+                background-color: $white-primary
+                padding: 5px
+
+    .disqus-thread
+        margin-top: 40px
+        margin-bottom: 40px
+
+    .addthis_inline_share_toolbox
+        text-align: center
+        margin-top: 20px
+
+    .container-shared
+        background-color: $gray-quaternary
+        border-top: 1px solid $gray-senary
+        border-bottom: 1px solid $gray-senary
+        padding: 40px 0px
+
+        h4
+            font-size: 14px
+            text-align: center
+
+    .container-comments
+        padding: 40px 0px
+
+        .container
+            max-width: 800px
+
+        h4
+            font-size: 18px
+            text-align: center
+
+
+// Communication list
+// -------------------
+.communication-list
+    .nav-container
+        margin: 40px 0
+        text-align: center
+
+        .nav-pills
+            display: block
+            max-width: 300px
+            margin: auto
+
+            @include grid-media($tablet)
+                display: inline-block
+                max-width: none
+
+            li
+                height: 40px
+                float: none
+                text-align: left
+
+                @include grid-media($tablet)
+                    float: left
+                    text-align: center
+
+            a
+                text-transform: uppercase
+                color: $black-primary
+                background: none
+                font-family: "univers67", sans-serif
+                padding: 10px 20px
+                @include border-top-radius(0px)
+                @include border-bottom-radius(0px)
+
+                &:hover
+                    color: $gray-tertiary
+
+            .active
+                a
+                    background: none
+                    border-bottom: 2px solid $yellow-primary
+                    color: $black-primary
+
+    .comunicaction-list-item
+        .container
+            padding: 0px
+
+        .item
+            background-color: $gray-primary
+            transition: background-color 0.3s ease-out
+
+            &:hover
+                background-color: $gray-secondary
+
+            a
+                display: block
+                text-decoration: none
+                color: $black-primary
+
+            .cover-image
+                height: 340px
+
+            .info-comunication
+                padding: 20px
+
+                .category
+                    text-transform: uppercase
+                    font-size: 12px
+                    color: $gray-tertiary
+                    font-weight: 700
+
+                h2
+                    font-family: 'univers67', sans-serif
+                    margin: 0 0 10px 0
+                    font-weight: normal
+                    font-size: 20px
+                    text-transform: uppercase
+
+                p
+                    font-size: 14px

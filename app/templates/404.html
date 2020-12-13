@@ -1,0 +1,20 @@
+{% extends 'layout/base.html' %}
+{% load block_tags %}
+
+{% block title %}Página no encontrada |{% endblock %}
+
+{% block content %}
+<div class="error-404 text-center">
+    <div class="container">
+        <p class="title">404</p>
+        <div class="main-background"></div>
+        <div class="description">
+            <h1>PÁGINA NO ENCONTRADA</h1>
+            <h2>NUESTRAS MÁQUINAS NO HAN TERMINADO DE CONSTRUIR LA VÍA DE CONEXIÓN</h2>
+            <p><a class="go-back-link" href="/">« Atras / Home</a></p>
+        </div>
+    </div>
+
+    {% get_link_list 'home' %}
+</div>
+{% endblock %}

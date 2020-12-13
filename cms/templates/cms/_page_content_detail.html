@@ -1,0 +1,49 @@
+{% load static thumbnail %}
+<div class="gp-page-detail">
+    <div class="navegation-menu">
+        <a href="#" class="link-icon back-btn js-back-btn">
+            <div class="circle">
+                <svg class="icon">
+                    <use xlink:href="{% static 'svg/icons.svg' %}#arrow"></use>
+                </svg>
+            </div>
+            <div class="text">Atras</div>
+        </a>
+    </div>
+    <div class="gp-description {% if page.show_content and page.show_children %} with-list{% endif %}">
+        <div class="container gp-page-text">{{ page.content|safe }}</div>
+
+        {% include 'cms/_links_and_files.html' %}
+
+            {% if page.gallery.exists %}
+            <div class="carousel-container">
+                <div class="js-carousel">
+                {% for gallery_slide in page.gallery.all %}
+                    <div class="slide">
+                        {% thumbnail gallery_slide.image "800x380" crop="center" as im %}
+                            <img src="{{ im.url }}" alt="{{ gallery_slide.title }}">
+                        {% endthumbnail %}
+                    </div>
+                {% endfor %}
+                </div>
+                <a class="image-zoom js-zoom" href="#">
+                    <svg class="icon">
+                        <use xlink:href="{% static 'svg/icons.svg' %}#magnifying-glass"></use>
+                    </svg>
+                    <span>Ampliar foto</span>
+                </a>
+            </div>
+            {% endif %}
+
+        {% if page.has_contact %}
+        <div class="related-link">
+            <a class="yellow-link-box" href="{% url 'contact' %}?page={{ page.id }}">
+                <span>MAYOR INFORMACIÓN</span>
+                <svg class="icon">
+                    <use xlink:href="{% static 'svg/icons.svg' %}#arrow-btn"></use>
+                </svg>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>

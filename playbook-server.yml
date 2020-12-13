@@ -1,0 +1,40 @@
+---
+- name: Provision a brand new machine based on Ubuntu 16.04 LTS
+
+  hosts: gecolsa
+
+  remote_user: deploy
+
+  vars:
+    host_name:              gecolsa
+    domain_name:            gecolsa.com
+    time_zone:              America/Bogota
+    repo_slug:              gecolsa-website
+    postgres_version:       9.5
+    redis_version:          3.2.3
+    nodejs_version:         6.6.0
+    # Remove when ansible supports python 3
+    ansible_python_interpreter: /usr/bin/python2.7
+
+  vars_prompt:
+    - name: 'smtp_username'
+      prompt: 'Mailgun SMTP Username'
+      private:  no
+    - name: 'smtp_password'
+      prompt: 'Mailgun SMTP Password'
+
+  roles:
+   - common
+   - postgresql
+   - redis
+   - django
+   - uwsgi
+   - nginx
+
+  post_tasks:
+    - name: Restart server
+      become: true
+      command: reboot
+      async: 0
+      poll: 0
+      ignore_errors: true

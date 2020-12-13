@@ -1,0 +1,41 @@
+{% load product_tags static %}
+<!-- CHILDREN LIST LAYOUT -->
+<div class="gp-page-item {% if forloop.counter|divisibleby:2 %}even{% endif %}">
+    <div class="container">
+        <div class="gird-2">
+            <div class="col-grid-2">
+        {% if page_child.list_image %}
+            {% image_style page_child.list_image "page" as image_style %}
+            {% if image_style %}
+                <img class="lazy" data-original="{{ page_child.list_image.url }}" alt="{{ page_child.title }}">
+            {% endif %}
+        {% endif %}
+            </div>
+            <div class="col-grid-2">
+                <h5>{{ page_child }}</h5>
+                <div class="gp-page-text">{{ page_child.summary|safe }}</div>
+                {% for file in page_child.related_files.all %}
+                <div class="related-link">
+                    <a class="yellow-link-box" target="_blank" href="{{ file.image.url }}">
+                        <span>{{ file.title }}</span>
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#download-btn"></use>
+                        </svg>
+                    </a>
+                </div>
+                {% endfor %}
+
+                {% for related_link in page_child.related_links.all %}
+                <div class="related-link">
+                    <a class="yellow-link-box" href="{{ related_link.url }}">
+                        <span>{{ related_link.title }}</span>
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#arrow-btn"></use>
+                        </svg>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

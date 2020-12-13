@@ -1,0 +1,13 @@
+{% if item.children.exists and item.is_active %}
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+        <span class="visible-xs visible-sm gp-img-icon-plus"></span>
+        <ul class="dropdown-menu" role="menu">
+        {% for second_level_item in item.children.all %}
+            <li><a href="{{ second_level_item.get_absolute_url }}">{{ second_level_item.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </li>
+{% elif item.is_active %}
+    <li><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
+{% endif %}

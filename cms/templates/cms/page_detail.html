@@ -1,0 +1,92 @@
+{% extends "layout/base.html" %}
+{% load cms_tags static %}
+
+{% block title %}{{ page.title }} |{% endblock %}
+
+{% block meta_description %}{{ page.meta_description }}{% endblock %}
+
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'node_modules/slick-carousel/slick/slick.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'node_modules/slick-carousel/slick/slick-theme.css' %}">
+{% endblock %}
+
+{% block header %}
+<div class="text-heading" style="background-image: url({{ page.get_image.url }});">
+    <div class="container">
+    {% if page.embed_video_url %}
+        <div class="videoGrid">
+            <div class="col">
+                <h1>{{ page.title }}</h1>
+                <div class="summary">{{ page.summary|safe }}</div>
+            </div>
+            <div class="col">
+                <div class="video-wrapper">
+                    <iframe src="{{ page.embed_video_url }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h1>{{ page.title }}</h1>
+        <div class="summary image">{{ page.summary|safe }}</div>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumb-container">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'home' %}">Home</a></li>
+        {% for parent in page.get_parents %}
+            <li><a href="{{ parent.get_absolute_url }}">{{ parent.title }}</a></li>
+        {% endfor %}
+            <li class="active">{{ page.title }}</li>
+        </ol>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="page-detail {% if page.has_children_accordion %}with-accordion{% endif %}">
+{% if page.has_children_accordion and page.get_parents %}
+    <div class="container">
+        <div class="accordion-page-container">
+            <div class="col-page-accordion">{% get_accordion page %}</div>
+            <div class="col-page-accordion">
+    {% if page.content|length < 20 and page.children.exists %}
+        {% include "cms/_page_children.html" %}
+    {% else %}
+            <!-- PAGE DETAIL LAYOUT -->
+
+            {% include "cms/_page_content_detail.html"  %}
+
+            {% include 'common/_contact_form.html' %}
+
+    {% endif %}
+            </div>
+        </div>
+    </div>
+{% else %}
+    {% if not page.children.exists %}
+    <div class="container">{% include "cms/_page_content_detail.html"  %}</div>
+    {% else %}
+        {% include "cms/_page_children.html" %}
+    {% endif %}
+{% endif %}
+</div>
+
+<div class="hide">
+{% for gallery_slide in page.gallery.all %}
+    <a class="full-size-image" data-lightbox="equipment" href="{{ gallery_slide.image.url }}" data-title="{{ forloop.counter }}"></a>
+{% endfor %}
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'node_modules/slick-carousel/slick/slick.min.js' %}"></script>
+<script src="{% static 'node_modules/jquery_lazyload/jquery.lazyload.js' %}"></script>
+<script src="{% static 'js/page-basic.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,36 @@
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+    <span class="visible-xs visible-sm gp-img-icon-plus"></span>
+    <ul class="dropdown-menu" role="menu">
+    {% for second_level_item in item.children %}
+        {% if second_level_item.children|length > 0 %}
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="{{ second_level_item.get_absolute_url }}">{{ second_level_item.title|truncatechars:35 }}</a>
+                <span class="visible-xs visible-sm gp- -icon-plus"></span>
+                <ul class="dropdown-menu" role="menu">
+                {% for third_level_item in second_level_item.children %}
+                    {% if second_level_item.title == 'Renta' %}
+                        <li><a href="{% url 'equipment:rent_category_detail' third_level_item.slug %}">{{ third_level_item.title }}</a></li>
+                    {% else %}
+                    <li>
+                        {% if second_level_item.equipment_type == 'new_equipment' or second_level_item.equipment_type == 'accesories' %}
+                            <a href="{% url 'equipment:category_detail' third_level_item.slug %}">{{ third_level_item.title }}</a></li>
+                        {% elif second_level_item.equipment_type == 'used_equipment' %}
+                            <a href="{% url 'equipment:used_equipment_list' third_level_item.slug %}">{{ third_level_item.title }}</a></li>
+                        {% elif second_level_item.equipment_type == 'allied_brands' %}
+                            <a href="{% url 'equipment:brand_category_list' third_level_item.slug %}">{{ third_level_item.title }}</a></li>
+                        {% elif second_level_item.equipment_type == 'rent_equipment' %}
+                            <a href="{% url 'equipment:rent_category_detail' third_level_item.slug %}">{{ third_level_item.title }}</a></li>
+                        {% elif second_level_item.equipment_type == 'parts' %}
+                            <a href="{% url 'cms:page_detail' third_level_item.slug %}">{{ third_level_item.title }}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </li>
+        {% elif second_level_item.is_active %}
+            <li><a href="{{ second_level_item.get_absolute_url }}">{{ second_level_item.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</li>

@@ -1,0 +1,67 @@
+h1, h2, h3, h4, h5, h6
+    font-family: 'univers67', sans-serif
+    text-transform: uppercase
+    font-weight: 400
+
+h1
+    font-size: 30px
+
+    @include grid-media($tablet)
+        font-size: 40px
+
+    @include grid-media($desktop-xl)
+        font-size: 45px
+
+h2
+    font-size: 30px
+
+    @include grid-media($tablet)
+        font-size: 42px
+
+    @include grid-media($desktop-xl)
+        font-size: 52px
+
+    &.title
+        font-size: 28px
+
+        @include grid-media($tablet)
+            font-size: 45px
+
+        @include grid-media($desktop-xl)
+            font-size: 45px
+
+h3
+    font-size: 24px
+
+    @include grid-media($tablet)
+        font-size: 28px
+
+    @include grid-media($desktop-xl)
+        font-size: 38px
+
+h4
+    font-size: 20px
+
+    @include grid-media($tablet)
+        font-size: 24px
+
+    @include grid-media($desktop-xl)
+        font-size: 32px
+
+h5
+    font-size: 18px
+
+    @include grid-media($tablet)
+        font-size: 20px
+
+    @include grid-media($desktop-xl)
+        font-size: 26px
+
+h6
+    font-size: 14px
+
+    @include grid-media($tablet)
+        font-size: 18px
+
+    @include grid-media($desktop-xl)
+        font-size: 20px

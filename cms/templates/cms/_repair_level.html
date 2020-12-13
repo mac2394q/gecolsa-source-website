@@ -1,0 +1,351 @@
+{% extends "layout/base.html" %}
+{% load static thumbnail block_tags %}
+
+{% block title %} Repair level{% endblock %}
+
+{% block meta_title %}Nivel de reparción{% endblock %}
+
+{% block meta_description %}Nivel de reparación{% endblock %}
+
+{% block header %}
+<div class="text-heading communication-heading" style="background-image: url('/static/img/default_page_image.jpg');">
+    <div class="container">
+        <div class="summary">Ventajas</div>
+        <h1>Nivel de reparación</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumb-container">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="active">Nivel de reparación</li>
+        </ol>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="equipment-condition">
+    <div class="container">
+        <h2>Introduccion</h2>
+        <p>Cuando reparas antes de la falla, estas tomando una decisión de gran economía para tu operación. Los componentes CAT se encuentran diseñados para durar varias vidas, con tan solo el recambio de las partes internas de desgaste normal para el uso del equipo; por el contrario, si un componente y/o equipo se lleva a la falla, el costo de la recuperación del componente podría ser hasta de 2,5 veces el valor de la reparación antes de falla. Estudios concuerdan que el 90 % de las fallas catastróficas se habían podido evitar si se hubiesen intervenido los componentes afectados, con la debida anticipación.
+        </p>
+        <br>
+        <h4>VENTAJAS</h4>
+        <ul>
+            <li>Amplio rango de ofertas</li>
+            <li>Precios fijos</li>
+            <li>Excelentes tiempos de reparación</li>
+            <li>Claridad en las cotizaciones</li>
+            <li>Excelente Garantía</li>
+        </ul>
+        <div class="specification-list">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="title active">
+                    <a href="#fade1" data-toggle="tab">Motor</a>
+                </li>
+                <li class="title">
+                    <a href="#fade2" data-toggle="tab">Transmisión</a>
+                </li>
+                <li class="title">
+                    <a href="#fade3" data-toggle="tab">Mandos finales</a>
+                </li>
+                <li class="title">
+                    <a href="#fade4" data-toggle="tab">Convertidores</a>
+                </li>
+            </ul>
+            <div class="content">
+                <div class="tab-pane fade in active" id="fade1">
+                    <div id="accordion3">
+                        <div class="sub-menu">
+                            <h3><a data-toggle="collapse" data-parent="#accordion3" href="#collapse3-1">MOTOR NIVEL 1</a></h3>
+                            <div id="collapse3-1" class="panel-collapse collapse">
+                                <div class="specification-content">
+                                    <div class="header">
+                                        <span class="square" style="background-color: #0044a3"></span>
+                                        <h4>Nivel 1</h4>
+                                    </div>
+                                    <ul class="specification">
+                                        <li>&#8226; Bujes del eje de levas.</li>
+                                        <li>&#8226; Bujes de pie de biela.</li>
+                                        <li>&#8226; Anillos.</li>
+                                        <li>&#8226; Casquetes de biela y bancada.</li>
+                                        <li>&#8226; Bujes de arbol de levas.</li>
+                                        <li>&#8226; Reparación de bomba de aceite no incluye la carcaza.</li>
+                                        <li>&#8226; Cambios de aceite y filtros de aceite y combustible.</li>
+                                        <li>&#8226; Termostato.</li>
+                                        <li>&#8226; Esparragos de turbo alimentador (si requiere cambio).</li>
+                                        <li>&#8226; Reparación de culata (cambio de valvulas, resortes, guias, insertos, locks y rotorcoil si es necesario.).</li>
+                                        <li>&#8226; Pulida de cigueñal si se requiere.</li>
+                                        <li>&#8226; Incluye empaqiuetaduras.</li>
+                                        <li>&#8226; Prueba de dinamómetro.</li>
+                                        <li>&#8226; Tarifa especial de mano de obra.</li>
+                                    </ul>
+                                </div>
+                                <div class="specification-image">
+                                    <img src="https://gecolsa.com/uploads/static_pictures/280-9912_level3_deliverable.png" alt="Motor">
+                                </div>
+                                <div class="equipment">
+                                    Equipos:
+                                    <span>73O</span>
+                                    <span>D8T</span>
+                                    <span>D6T</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sub-menu">
+                            <h3><a data-toggle="collapse" data-parent="#accordion3" href="#collapse3-2">MOTOR NIVEL 2</a></h3>
+                            <div id="collapse3-2" class="panel-collapse collapse">
+                                <div class="specification-content">
+                                    <div class="header">
+                                        <span class="square" style="background-color: #f5f400"></span>
+                                        <h4>Nivel 2</h4>
+                                        <p class="description">Incluyen las tareas del nivel 1 y las de los siguientes componentes</p>
+                                    </div>
+                                    <ul class="specification">
+                                        <li>&#8226; Incluyen las tareas del nivel 1 y las de los siguientes componentes:</li>
+                                        <li>&#8226; Reemplazo camisas (según la guía de reusabilidad de partes).</li>
+                                        <li>&#8226; Pistones si se requiere su cambio según guía reusabilidad.</li>
+                                        <li>&#8226; Reparación de bomba de agua no incluye carcaza pero si incluye empeler.</li>
+                                        <li>&#8226; Cambios de asientos y guías de valulas de la culata.</li>
+                                        <li>&#8226; Incluye cartridge reman no incluye carcazas.</li>
+                                        <li>&#8226; Inyectores reman si es necesario su cambio.</li>
+                                        <li>&#8226; Reparación de bomba de inyección (solo componentes normales de desgaste).</li>
+                                        <li>&#8226; Reparación de alternador y motor de arranque con partes locales.</li>
+                                        <li>&#8226; Rectificador de cigueñal (si se require).</li>
+                                        <li>&#8226; Cambio mangueras de alimentación de los filtros de combustible.</li>
+                                        <li>&#8226; Cambio bomba de transferencia de combustible reman.</li>
+                                        <li>&#8226; Reparación bomba de agua.</li>
+                                    </ul>
+                                </div>
+                                <div class="specification-image">
+                                    <img src="https://gecolsa.com/uploads/static_pictures/280-9912_level3_deliverable.png" alt="Motor">
+                                </div>
+                                <div class="equipment">
+                                    Equipos:
+                                    <span>73O</span>
+                                    <span>D8T</span>
+                                    <span>D6R</span>
+                                    <span>D9T</span>
+                                    <span>32OD</span>
+                                    <span>3300DL</span>
+                                    <span>336DL</span>
+                                    <span>938H</span>
+                                    <span>95OH</span>
+                                    <span>3054</span>
+                                    <span>3066</span>
+                                    <span>3116</span>
+                                    <span>3126</span>
+                                    <span>3176</span>
+                                    <span>3304</span>
+                                    <span>3306</span>
+                                    <span>3406</span>
+                                    <span>3408</span>
+                                    <span>C6,4</span>
+                                    <span>C6,6</span>
+                                    <span>C7</span>
+                                    <span>C9</span>
+                                    <span>C11</span>
+                                    <span>C15</span>
+                                    <span>C18</span>
+                                    <span>3406</span>
+                                    <span>3412</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sub-menu">
+                            <h3><a data-toggle="collapse" data-parent="#accordion3" href="#collapse3-3">MOTOR NIVEL 3</a></h3>
+                            <div id="collapse3-3" class="panel-collapse collapse">
+                                <div class="specification-content">
+                                    <div class="header">
+                                        <span class="square" style="background-color: #bd0000"></span>
+                                        <h4>Nivel 3</h4>
+                                        <p class="description">Incluyen las tareas de los niveles 1 y 2 más los siguientes componentes</p>
+                                    </div>
+                                    <ul class="specification">
+                                        <li>&#8226; Incluye enfriador de aceite de motor reman.</li>
+                                        <li>&#8226; Sensor de temperatura de refrigerante.</li>
+                                        <li>&#8226; Sensor de presion de aceite de motor.</li>
+                                        <li>&#8226; Piñon eje de levas (segun guía de reusabilidad de partes).</li>
+                                        <li>&#8226; Ejes de levas (según guía de reusabilidad de partes).</li>
+                                        <li>&#8226; Reparación y/o suministro de culatas remanufacturadas.</li>
+                                    </ul>
+                                </div>
+                                <div class="specification-image">
+                                    <img src="https://gecolsa.com/uploads/static_pictures/280-9912_level3_deliverable.png" alt="Motor">
+                                </div>
+                                <div class="equipment">
+                                    Equipos: <span>73O</span> <span>D8T</span> <span>D6T</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="fade2">
+                    <div id="accordion4">
+                        <div class="sub-menu">
+                            <h3><a data-toggle="collapse" data-parent="#accordion4" href="#collapse4-1">TRANSMISION NIVEL 1</a></h3>
+                            <div id="collapse4-1" class="panel-collapse collapse">
+                                <div class="specification-content">
+                                    <div class="header">
+                                        <span class="square" style="background-color: #0044a3"></span>
+                                        <h4>Nivel 1</h4>
+                                        <p class="description">Incluye partes nuevas instaladas</p>
+                                    </div>
+                                    <ul class="specification">
+                                        <li>&#8226; Todos los bujes.</li>
+                                        <li>&#8226; Todos los sellos y empaques.</li>
+                                        <li>&#8226; Discos de empuje.</li>
+                                        <li>&#8226; Tornillería de diversa (segun requiera).</li>
+                                        <li>&#8226; Cambio de aceite y filtros de la transmisión.</li>
+                                        <li>&#8226; Rodamientos.</li>
+                                    </ul>
+                                </div>
+                                <div class="specification-image">
+                                    <img src="https://gecolsa.com/uploads/static_pictures/209-5636_transmission_level2_deliverable.png" alt="Transmision">
+                                </div>
+                                <div class="equipment">
+                                    Equipos: <span>73O</span> <span>D8T</span> <span>D6T</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sub-menu">
+                            <h3><a data-toggle="collapse" data-parent="#accordion4" href="#collapse4-2">TRANSMISION NIVEL 2</a></h3>
+                            <div id="collapse4-2" class="panel-collapse collapse">
+                                <div class="specification-content">
+                                    <div class="header">
+                                        <span class="square" style="background-color: #f5f400"></span>
+                                        <h4>Nivel 2</h4>
+                                        <p class="description">Incluye nivel 2 y los siguientes componentes</p>
+                                    </div>
+                                    <ul class="specification">
+                                        <li>&#8226; Sensor de velocidad.</li>
+                                        <li>&#8226; Engranes solares.</li>
+                                        <li>&#8226; Discos de fricción.</li>
+                                        <li>&#8226; Platos del embrague.</li>
+                                        <li>&#8226; Pistones.</li>
+                                    </ul>
+                                </div>
+                                <div class="specification-image">
+                                    <img src="https://gecolsa.com/uploads/static_pictures/209-5636_transmission_level2_deliverable.png" alt="Transmision">
+                                </div>
+                                <div class="equipment">
+                                    Equipos:
+                                    <span>73O</span>
+                                    <span>D8T</span>
+                                    <span>D6T</span>
+                                    <span>D6R</span>
+                                    <span>D9T</span>
+                                    <span>32OD</span>
+                                    <span>3300DL</span>
+                                    <span>336DL</span>
+                                    <span>938H</span>
+                                    <span>95OH</span>
+                                    <span>966H</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="fade3">
+                    <div id="accordion2">
+                        <div class="sub-menu">
+                            <h3><a data-toggle="collapse" data-parent="#accordion2" href="#collapse2-1">MANDOS FINALES NIVEL 1</a>
+                            </h3>
+                            <div id="collapse2-1" class="panel-collapse collapse">
+                                <div class="specification-content">
+                                    <div class="header">
+                                        <span class="square" style="background-color: #0044a3"></span>
+                                        <h4>Nivel 1</h4>
+                                        <p class="description">Incluye partes nuevas instaladas</p>
+                                    </div>
+                                    <ul class="specification">
+                                        <li>&#8226; Todos los bujes.</li>
+                                        <li>&#8226; Todos los sellos y empaques.</li>
+                                        <li>&#8226; Sellos duo-cone.</li>
+                                        <li>&#8226; Anillos de retenciíon.</li>
+                                    </ul>
+
+                                </div>
+                                <div class="specification-image">
+                                    <img src="https://gecolsa.com/uploads/static_pictures/336-5750_finaldrive_level2_deliverable.png" alt="Mandos">
+                                </div>
+                                <div class="equipment">
+                                    Equipos: <span>73O</span> <span>D8T</span> <span>D6T</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sub-menu">
+                            <h3><a data-toggle="collapse" data-parent="#accordion2" href="#collapse2-2">MANDOS FINALES NIVEL 2</a></h3>
+                            <div id="collapse2-2" class="panel-collapse collapse">
+                                <div class="specification-content">
+                                    <div class="header">
+                                        <span class="square" style="background-color: #f5f400"></span>
+                                        <h4>Nivel 2</h4>
+                                        <p class="description">Incluye nivel 1 y los siguientes componentes</p>
+                                    </div>
+                                    <ul class="specification">
+                                        <li>&#8226; Ejes planetarios.</li>
+                                        <li>&#8226; Engranes planetarios pequeños.</li>
+                                        <li>&#8226; Pistas rodamiento.</li>
+                                        <li>&#8226; Anillos de empuje.</li>
+                                    </ul>
+                                </div>
+                                <div class="specification-image">
+                                    <img src="https://gecolsa.com/uploads/static_pictures/336-5750_finaldrive_level2_deliverable.png" alt="Mandos">
+                                </div>
+                                <div class="equipment">
+                                    Equipos:
+                                    <span>73O</span>
+                                    <span>D8T</span>
+                                    <span>D6T</span>
+                                    <span>D6R</span>
+                                    <span>D9T</span>
+                                    <span>32OD</span>
+                                    <span>3300DL</span>
+                                    <span>336DL</span>
+                                    <span>938H</span>
+                                    <span>95OH</span>
+                                    <span>966H</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="fade4">
+                    <div id="accordion">
+                        <div class="sub-menu active">
+                            <h3><a data-toggle="collapse" data-parent="#accordion" href="#collapse1-1">CONVERTIDOR DE TORQUE NIVEL 1</a></h3>
+                            <div id="collapse1-1" class="panel-collapse collapse">
+                                <div class="specification-content">
+                                    <div class="header">
+                                        <span class="square" style="background-color: #0044a3"></span>
+                                        <h4>Nivel 1</h4>
+                                        <p class="description">Incluye partes nuevas instaladas</p>
+                                    </div>
+                                    <ul class="specification">
+                                        <li>&#8226; Todos los bujes y rodamientos.</li>
+                                        <li>&#8226; Todos los sellos y empaques.</li>
+                                        <li>&#8226; Tornillería diversa (según se requiera).</li>
+                                        <li>&#8226; Discos de empuje.</li>
+                                    </ul>
+                                </div>
+                                <div class="specification-image">
+                                    <img src="https://gecolsa.com/uploads/static_pictures/convertidor.jpg" alt="Convertidor">
+                                </div>
+                                <div class="equipment">
+                                    Equipos: <span>73O</span> <span>D8T</span> <span>D6T</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

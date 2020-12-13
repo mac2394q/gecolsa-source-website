@@ -1,0 +1,10 @@
+{% load html_helpers %}
+
+{{ object.title }}
+{{ object.title|unaccent }}
+
+{{ object.content|html_extract_text|safe }}
+{{ object.content|html_extract_text|safe|unaccent }}
+
+{{ object.extended_content|html_extract_text|safe }}
+{{ object.extended_content|html_extract_text|safe|unaccent }}

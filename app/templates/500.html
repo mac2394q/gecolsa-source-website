@@ -1,0 +1,21 @@
+{% extends 'layout/base.html' %}
+{% load block_tags %}
+
+{% block title %}Error de servidor |{% endblock %}
+
+{% block content %}
+<div class="error-500 text-center">
+    <div class="container">
+        <p class="title">500</p>
+        <div class="main-background"></div>
+
+        <div class="description">
+            <h1>ERROR DE SERVIDOR</h1>
+            <h2>PRONTO VOLVEREMOS EN LÍNEA</h2>
+            <p><a class="go-back-link" href="/">« Atras / Home</a></p>
+        </div>
+    </div>
+
+    {% get_link_list 'home' %}
+</div>
+{% endblock %}

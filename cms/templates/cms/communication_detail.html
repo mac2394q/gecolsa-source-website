@@ -1,0 +1,179 @@
+{% extends "layout/base.html" %}
+{% load static thumbnail block_tags %}
+
+{% block title %}{{ communication.title }} - Comunicación |{% endblock %}
+
+{% block meta_title %}{{ communication.meta_title }}{% endblock %}
+
+{% block meta_description %}{{ communication.meta_description }}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'node_modules/slick-carousel/slick/slick.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'node_modules/slick-carousel/slick/slick-theme.css' %}">
+{% endblock %}
+
+{% block header %}
+<div class="text-heading communication-heading" style="background-image: url({{ communication.image.url }});">
+    <div class="container">
+        <div class="summary">
+            {{ communication.category.title|safe }}
+        </div>
+        <h1>{{ communication.title }}</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumb-container">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'cms:communication_list' %}">Comunicación</a></li>
+            <li><a href="{{ communication.category.get_absolute_url }}">{{ communication.category.title }}</a></li>
+            <li class="active">{{ communication.title }}</li>
+        </ol>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="communication-detail page-detail">
+    <div class="container">
+        <div class="comunication-container">
+            <div class="navegation-menu">
+                <a href="#" class="link-icon back-btn js-back-btn">
+                    <div class="circle">
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#arrow"></use>
+                        </svg>
+                    </div>
+                    <div class="text">Atras</div>
+                </a>
+            </div>
+
+            {% if communication.category.slug == 'eventos' %}
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>FECHA{% if communication.event_hour %} - HORA {% endif %}</td>
+                            {% if communication.end_date %}
+                                <td>FECHA FINAL</td>
+                            {% endif %}
+                                <td>CIUDAD</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ communication.event_date }} {% if communication.event_hour %}{{ communication.event_hour }}{% endif %}</td>
+                            {% if communication.end_date %}
+                                <td>{{ communication.end_date }}</td>
+                            {% endif %}
+                                <td>{{ communication.event_city }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+            {% if communication.event_place %}
+                <p><b>Lugar: </b>{{ communication.event_place }}</p>
+            {% endif %}
+
+            {{ communication.content|safe }}
+
+        </div>
+
+            {% if communication.gallery.exists %}
+            <div class="carousel-container">
+                <div class="js-carousel">
+                {% for gallery_slide in communication.gallery.all %}
+                    <div class="slide">
+                    {% thumbnail gallery_slide.image "800x380" crop="center" as im %}
+                        <img src="{{ im.url }}" alt="{{ gallery_slide.title }}">
+                    {% endthumbnail %}
+                    </div>
+                {% endfor %}
+                </div>
+                <a class="image-zoom js-zoom" href="#">
+                    <svg class="icon">
+                        <use xlink:href="{% static 'svg/icons.svg' %}#magnifying-glass"></use>
+                    </svg>
+                    <span>Ampliar foto</span>
+                </a>
+            </div>
+            {% endif %}
+
+        <div class="comunication-container">
+            {{ communication.extended_content|safe }}
+
+            {% for file in communication.related_files.all %}
+                <div class="related-link">
+                    <a class="yellow-link-box" target="_blank" href="{{ file.image.url }}">
+                        <span>{{ file.title }}</span>
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#download-btn"></use>
+                        </svg>
+                    </a>
+                </div>
+            {% endfor %}
+            {% if communication.has_contact %}
+                <div class="related-link">
+                    <a class="yellow-link-box" href="{% url 'contact' %}?communication={{ communication.id }}">
+                        <span>MAYOR INFORMACIÓN</span>
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#arrow-btn"></use>
+                        </svg>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% if communication.category.has_share_buttons %}
+        <div class="container-shared">
+            <div class="container">
+                <h4>Comparte este artículo</h4>
+                <div class="addthis_inline_share_toolbox"></div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if communication.category.has_comments %}
+        <div class="container-comments">
+            <div class="container">
+                <h4>Comentarios</h4>
+                <div class="disqus-thread" id="disqus_thread"></div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<div class="hide">
+{% if communication.gallery.exists %}
+    {% for gallery_slide in communication.gallery.all %}
+        <a class="full-size-image" data-lightbox="communication" href="{{ gallery_slide.image.url }}" data-title="{{ forloop.counter }}"></a>
+    {% endfor %}
+{% endif %}
+</div>
+
+{% if communication.has_footer %}
+    {% get_link_list communication %}
+{% endif %}
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57bb30e62caa7058"></script>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'node_modules/slick-carousel/slick/slick.min.js' %}"></script>
+<script src="{% static 'js/communication.js' %}"></script>
+<script>
+(function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//gecolsa.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+
+    $('.related-link a.yellow-link-box').on('click', function() {
+        ga('send', 'event', 'more_info', 'click');
+    });
+})();
+</script>
+{% endblock %}

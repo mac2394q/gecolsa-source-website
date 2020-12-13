@@ -1,0 +1,9 @@
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="{{ get_absolute_url }}">Servicios</a>
+    <span class="visible-xs visible-sm gp-img-icon-plus"></span>
+    <ul class="dropdown-menu" role="menu">
+    {% for second_level_item in rent_category_list.all %}
+        <li><a href="{% url 'cms:page_detail' second_level_item.slug %}">{{ second_level_item.title }}</a></li>
+    {% endfor %}
+    </ul>
+</li>

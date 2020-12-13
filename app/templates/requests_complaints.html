@@ -1,0 +1,176 @@
+{% extends "layout/base.html" %}
+{% load block_tags static widget_tweaks %}
+
+{% block title %}Recepción de solicitudes y denuncias{% endblock %}
+
+{% block header %}
+<div class="text-heading" style="background-image: url({% static 'img/stock-old-equipment.jpg' %});">
+    <div class="container">
+        <h1>Formulario de recepción de solicitudes y denuncias de la línea de ética</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumb-container">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="active">Recepción de solicitudes y denuncias</li>
+        </ol>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="contact-form">
+    <div class="container">
+        <p>General Equipos de Colombia S.A. GECOLSA agradece el uso de este sitio web para informar una situación o comportamiento inadecuado en contra del Código de Ética y Normas contra el Fraude, la Corrupción, el Lavado de Activos y la Financiación al Terrorismo. Este sitio web es operado garantizando la confidencialidad y seguridad en su reporte. Así mismo usted puede informar la situación y conservar el anonimato. Su colaboración en nuestro proceso es muy importante.</p>
+        <form class="js-request-complaint-form contact-form" method="POST" action="{% url 'requests_complaints' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-fieldset">
+                <h6 class="form-title">Información general</h6>
+                <div class="form-group">
+                    <label>¿La denuncia se realizará de manera anónima?</label>
+                    <div class="radio-option">
+                        {% for choice in form.type_complaint %}
+                        <label class="radio-option__item" for="{{ choice.id_for_label }}">
+                            {{ choice.tag }}
+                            {{ choice.choice_label }}
+                        </label>
+                        {% endfor %}
+                        {{ form.type_complaint.errors }}
+                    </div>
+                </div>
+
+                <div class="js-not-anonymous" style="display: none;">
+                    <div class="form-group">
+                        <label for="{{ form.full_name.auto_id }}">{{ form.full_name.label }}</label>
+                        {% render_field form.full_name class+='form-control' %}
+                        {{ form.full_name.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.email.auto_id }}">{{ form.email.label }}</label>
+                        {% render_field form.email class+='form-control' %}
+                        {{ form.email.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.phone_number.auto_id }}">{{ form.phone_number.label }}</label>
+                        {% render_field form.phone_number class+='form-control' %}
+                        {{ form.phone_number.errors }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.company_relation.auto_id }}">{{ form.company_relation.label }}</label>
+                    {% render_field form.company_relation class+='js-company-relation form-control' %}
+                    {{ form.company_relation.errors }}
+                </div>
+
+                <div class="js-other-option" style="display: none;">
+                    <div class="form-group">
+                        <label for="{{ form.other_relation.auto_id }}">{{ form.other_relation.label }}</label>
+                        {% render_field form.other_relation class+='form-control' %}
+                        {{ form.other_relation.errors }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-fieldset">
+                <h6 class="form-title">Detalles de denuncia</h6>
+                <div class="form-group">
+                    <label for="{{ form.purpose.auto_id }}">{{ form.purpose.label }}</label>
+                    {% render_field form.purpose class+='form-control' %}
+                    {{ form.purpose.errors }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.date.auto_id }}">{{ form.date.label }}</label>
+                    {% render_field form.date class+='form-control' type="date" %}
+                    {{ form.date.errors }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.place.auto_id }}">{{ form.place.label }}</label>
+                    {% render_field form.place class+='form-control' %}
+                    {{ form.place.errors }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.acts.auto_id }}">{{ form.acts.label }}</label>
+                    {% render_field form.acts class+='form-control' %}
+                    <span>{{ form.acts.help_text }}</span>
+                    {{ form.acts.errors }}
+                </div>
+            </div>
+
+            <div class="form-fieldset">
+                <h6 class="form-title">Persona(s) denunciada(s)</h6>
+                <div class="js-people-complaint">
+                    <div class="js-people-complaint-item form-group">
+                        <label for="personcomplaint_set-1">Persona denunciada</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="personcomplaint_set-1" id="personcomplaint_set-1">
+                            <span class="input-group-btn">
+                                <button class="js-people-complaint-item-btn-remove btn btn-danger" type="button">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="js-people-complaint-btn-add link-icon" type="button" data-target="2">
+                    <div class="text">Agregar persona</div>
+                    <div class="circle">
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#plus"></use>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+
+            <div class="form-fieldset">
+                <h6 class="form-title">Documento adjunto</h6>
+                <div class="form-group">
+                    <label class="js-input-file-text form-control input-file" for="{{ form.document.auto_id }}">Subir archivo...</label>
+                    <span>{{ form.document.help_text }}</span>
+                    {% render_field form.document style+='display:none;' %}
+                </div>
+            </div>
+		
+	<div class="input-group mb-3 row">
+  		<div class="input-group-prepend col-lg-1">
+    		<div class="input-group-text">
+      			<input type="checkbox" aria-label="Checkbox for following text input">
+    		</div>
+  		</div>
+  		<div class="col-lg-11">
+  			<p style="border: 2px solid black">Autorización de datos personales: De conformidad con lo dispuesto en las normas de habeas data vigentes, usted autoriza a KPMG y a 
+  			Gecolsa para tratar los datos que proporcione a través de este canal de la linea ética, con el fin de que se adelanten las investigaciones a que haya lugar</p>
+		</div>
+	</div>
+		
+            <!-- <p>Al enviar el formulario aceptas los <a href="/maquinaria/legal-general/">términos y condiciones</a>.</p>-->
+            <button type="submit" class="js-send-button yellow-link-box send_yellow_button">
+                <span>Enviar</span>
+                <svg class="icon">
+                    <use xlink:href="{% static 'svg/icons.svg' %}#arrow-btn"></use>
+                </svg>
+            </button>
+        </form>
+    </div>
+</div>
+{% include 'handlebars/item-people-complaint.handlebars.html' %}
+{% endblock %}
+
+{% block js_globals %}
+<script>
+    window.anonymous_option = '{{ ANONYMOUS_CHOICE }}'
+    window.not_anonymous_option = '{{ NOT_ANONYMOUS_CHOICE }}'
+    window.other_choice = '{{ OTHER_CHOICE }}'
+</script>
+{% endblock %}
+
+
+{% block js %}
+<script src="{% static 'node_modules/handlebars/dist/handlebars.min.js' %}"></script>
+<script src="{% static 'js/requests-complaints.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% load html_helpers %}
+
+{{ object.article_name }}
+{{ object.article_name|unaccent }}
+
+{{ object.article_name }}
+{{ object.article_name|unaccent }}
+
+{{ object.description }}
+{{ object.description|unaccent }}
+
+{{ object.reference }}
+
+{{ object.category.title }}
+{{ object.category.title|unaccent }}

@@ -1,0 +1,25 @@
+{% extends "layout/base_email.html" %}
+{% block content %}
+<p>Hemos recibido una denuncia desde el portal web.</p>
+
+<h3>Denunciante:</h3>
+<ul>
+    {% if data.is_anonymous %}
+    <li><b>Denuncia anónima</b></li>
+    {% else %}
+    <li><b>Nombre</b>: {{ data.full_name }}</li>
+    <li><b>Correo electrónico</b>: {{ data.email }} </li>
+    <li><b>Número de contacto</b>: {{ data.phone_number }} </li>
+    {% endif %}
+    <li><b>Vínculo con la compañía</b>: {{ data.company_relation }} </li>
+</ul>
+
+<h3>Denuncia:</h3>
+<ul>
+    <li><b>Objeto de la denuncia :</b>{{ data.purpose }}</li>
+    <li><b>Fecha de los hechos :</b>{{ data.date }}</li>
+    <li><b>Lugar de los hechos :</b>{{ data.place }}</li>
+    <li><b>Hechos de la denuncia :</b>{{ data.acts }}</li>
+    <li><b>Persona(s) denunciada(s) :</b>{{ data.get_people_complaint }}</li>
+</ul>
+{% endblock %}

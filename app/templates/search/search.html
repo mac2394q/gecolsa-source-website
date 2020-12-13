@@ -1,0 +1,69 @@
+{% extends "layout/base.html" %}
+{% load static paginator_tags %}
+
+{% block title %}Búsqueda |{% endblock %}
+
+{% block header %}
+<div class="text-heading" style="background-image: url(/static/img/search-results-bg.jpg);">
+    <div class="container">
+        {% if query %}
+            <h1>RESULTADO DE BÚSQUEDA</h1>
+        {% else %}
+            <h1>BÚSQUEDA</h1>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumb-container">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'home' %}">Home </a></li>
+            <li class="active">{% if query %}Resultados de búsqueda{% else %}Busqueda{% endif %}</li>
+        </ol>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="search">
+
+    <div class="container">
+
+        {% if page.object_list %}
+            <p class="result-text">Se encont{{ paginator.count|pluralize:"ó,raron" }} <strong class="color-green-primary">{{ paginator.count }}</strong> resultado{{ paginator.count|pluralize }} para <strong>"{{ query }}"</strong></p>
+        {% endif %}
+    </div>
+    <div class="listing-stripped">
+        {% if query %}
+            {% for result in page_obj.object_list %}
+                <div class="row">
+                    <div class="container">
+                        {{ result.rendered|safe }}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="container">
+                    <div class="no-results text-center">
+                        <img src="{% static 'img/no-search-results.png' %}" alt="">
+                        <h4>No se encontraron resultados</h4>
+                        <h4>para <strong>"{{ query }}"</strong></h4>
+                        <p><a class="go-back-link" href="/">&laquo; Atras / Home</a></p>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if paginator.num_pages > 1 %}
+                <div class="container">
+                    {% with page=page is_paginated=True %}{% get_pagination 2 0 %}{% endwith %}
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="container text-center">
+                <h4>Encuentra todo sobre nuestros productos y noticias.</h4>
+            </div>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

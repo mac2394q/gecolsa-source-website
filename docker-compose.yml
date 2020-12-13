@@ -1,0 +1,35 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: gecolsa-website
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    depends_on:
+      - migration
+      - mdillon__postgis
+      - redis
+  mdillon__postgis:
+    image: mdillon/postgis:10
+    volumes:
+      - .:/tmp/data/
+  redis:
+    image: redis:latest
+  yarn:
+    image: gecolsa-website
+    command: yarn install
+    volumes:
+      - .:/code
+  sass:
+    image: gecolsa-website
+    command: gulp compile-sass
+    volumes:
+      - .:/code
+  migration:
+    image: gecolsa-website
+    command: python manage.py migrate --noinput
+    volumes:
+      - .:/code

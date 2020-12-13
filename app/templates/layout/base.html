@@ -1,0 +1,267 @@
+<!DOCTYPE html>{% load cache staticfiles compress cms_tags shop_tags product_tags %}
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="google-site-verification" content="6T1ENzkvvMBbDtJ8lhWOj-YrLIuDKBjTdmmincCUyzM" />
+
+    <meta itemprop="type" property="og:type" content="website">
+    <meta property="og:site_name" content="Gecolsa">
+    <meta property="og:url" content="https://{{ request.get_host }}{{ request.get_full_path }}">
+    <meta itemprop="name" property="og:title" content="{% block meta_title %}Gecolsa{% endblock %}">
+    <meta itemprop="description" property="og:description" name="description" content="{% block meta_description %}{% endblock %}">
+    <meta itemprop="image" property="og:image" content="https://{{ request.get_host }}{% block meta_image %}{% endblock %}">
+    {% block meta_tags %}{% endblock %}
+
+    <title>{% block title %}{% endblock %} - Gecolsa</title>
+    {% block extra_head %}{% endblock %}
+
+{% compress css %}
+    <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'node_modules/sweetalert2/dist/sweetalert2.css' %}">
+    <link rel="stylesheet" href="{% static 'node_modules/bootstrap-select/dist/css/bootstrap-select.css' %}">
+    <link rel="stylesheet" href="{% static 'node_modules/lightbox2/dist/css/lightbox.css' %}">
+    {% block css %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endcompress %}
+
+{% compress js %}
+    {{ GOOGLE_TAG_MANAGER_SCRIPT }}
+{% endcompress %}
+  </head>
+  <body>
+    {{ GOOGLE_TAG_MANAGER_IFRAME }}
+        <!--
+                          _
+               /\        |_|
+              /  \  __  ___  __ _   __  ___  _ __ ___
+             / /\ \ \ \/ / |/ _` |/ __\/ _ \| '__/ _ \
+            / /  \ \ >  <| | (_| | |__| (_) | | |  __/
+           /_/    \//_/\_\_|\__,_|\___/\___/|_|  \___|
+
+          -->
+    {% if messages %}
+        <div class="hide messages-list">
+            {% for message in messages %}
+                <div class="message">{{ message|safe }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <header>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <div class="container">
+                    <a class="logo" href="{% url 'home' %}" title="Inicio">
+                        <span class="sr-only">{{ current_site.name }}</span>
+                        <img src="{% static 'svg/logo-gecolsa.svg' %}">
+                    </a>
+
+                    <ul class="social-media">
+                        <li>
+                            <a href="https://www.facebook.com/GECOLSA" target="_blank">
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#facebook"></use>
+                                </svg>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="https://twitter.com/GECOLSACat" target="_blank">
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#twitter"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/GECOLSACAT/" target="_blank">
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#instagram"></use>
+                                </svg>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="https://www.youtube.com/c/gecolsacat" target="_blank">
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#youtube"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/company/gecolsa/" target="_blank">
+                                <svg class="icon linkedin">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#linkedin"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="container-nav">
+                        <a class="call-now" href="tel:018000919920">
+                            Línea nacional<br>{{ config.PHONE_CONTACT }}
+                        </a>
+                        {% if config.STORE_IS_OPEN %}
+                            <a href="{% url 'shop:home' %}" class="yellow-link-box">
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#shopping-bag"></use>
+                                </svg>
+                                <span class="text">Tienda en línea</span>
+                            </a>
+                        {% endif %}
+                        <button type="button" class="magnifying-glass-icon js-toggle-search">
+                            <svg class="icon">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#magnifying-glass"></use>
+                            </svg>
+                        </button>
+                        <div class="menu-icon collapsed" data-toggle="collapse" data-target="#gp-main-navbar">
+                            <div class="stripe"></div>
+                            <div class="stripe"></div>
+                            <div class="stripe"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="gp-main-navbar">
+                <div class="container">
+                {% cache 86400 'menu' %}
+                    <ul class="nav navbar-nav">
+                        {% get_menu_item 'nosotros' %}
+                        {% get_menu_industries %}
+                        {% get_product_menu_item %}
+                        {% get_service_menu_item %}
+                        <li>{% get_menu_link 'tecnologia' %}</li>
+                        <li>{% get_menu_link 'financiacion' %}</li>
+                        <li><a href="{% url 'cms:communication_by_category_list' 'novedades' %}">Comunicación</a></li>
+                        <li><a href="{% url 'contact' %}">Contáctenos</a></li>
+			<li style="color:#fff"><a href="https://gecolsa.com/maquinaria/etica-y-cumplimiento/" style="color:#fff">Ética y Cumplimiento</a></li>
+                    {% if config.STORE_IS_OPEN %}
+                        <li class="online-store"><a href="{% url 'shop:home' %}">Tienda en línea</a></li>
+                    {% endif %}
+                        <li class="search-field visible-md visible-lg">
+                            <a href="javascript:void(0)" class="magnifying-glass-icon js-toggle-search">
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#magnifying-glass"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                {% endcache %}
+                </div>
+            </div>
+
+
+            <div class="search-form">
+                <div class="container">
+                    <form role="form" method="get" action="{% url 'search' %}">
+                        <div id="div_id_search" class="form-group">
+                            <div class="controls">
+                                <span class="visible-md visible-lg gp-img-nav-sm-search"></span>
+                                <input class="form-control" type="search" name="q" placeholder="Busque información" value="{{ query }}" autocomplete="off">
+                            </div>
+                            <span class="hide-search">×</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        {% if not hide_header %}
+            {% block header %}{% endblock %}
+        {% endif %}
+    </header>
+
+    <section>
+        {% block breadcrumbs %}{% endblock %}
+        {% block content %}{% endblock %}
+    </section>
+
+{% if config.CHAT_URL %}
+    <div class="hidden-xs hidden-sm chat-box">
+        <a class="js-chat-popup" href="{{ config.CHAT_URL }}">
+            <span class="gp-img-icon-chat"></span>
+            <span>Chat en </span>
+            <span class="color-yellow-primary">Linea</span>
+        </a>
+    </div>
+{% endif %}
+
+    <footer>
+        <div class="navigation">
+            {% cache 86400 'footer' %}
+            <div class="container">
+                <div class="footer-links">
+                    <div class="col">
+                        {% get_footer_item 'nosotros' %}
+                        {% get_footer_item 'industrias' %}
+                    </div>
+                    <div class="col">
+                        {% get_product_footer_item 'nuevos' %}
+                    </div>
+                    <div class="col">
+                        {% get_product_footer_item 'usados' %}
+                        <h5 class="title">{% get_menu_link 'renta' %}</h5>
+                        {% get_footer_item 'repuestos-y-servicios' %}
+                    </div>
+                    <div class="col">
+                        {% get_footer_item 'financiacion' %}
+                        {% if config.STORE_IS_OPEN %}
+                            {% get_merchandising_item %}
+                        {% endif %}
+
+
+                        {% get_footer_communication 'Comunicación' %}
+                        <h5 class="title"><a href="{% url 'contact' %}">Contacto</a></h5>
+                        <ul class="list-unstyled hidden-xs hidden-sm">
+                            <li><a href="{% url 'contact' %}">Formulario de contacto</a></li>
+                            <li><a href="{% url 'office_list' %}?city=2">Encuentre sede más cercana</a></li>
+                        {% if config.CHAT_URL %}
+                            <li><a class="js-chat-popup" href="{{ config.CHAT_URL }}">Chat</a></li>
+                        {% endif %}
+                        </ul>
+                        <h5 class="title">{% get_menu_link 'legal' %}</h5>
+                        <h5 class="title">
+                            <a href="/maquinaria/empleados">Empleados</a>
+                        </h5>
+                        <h5 class="title">
+                            <a href="{% url 'requests_complaints' %}">Denuncias línea ética</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            {% endcache %}
+        </div>
+
+        <div class="credits">
+            <div class="container">
+                &copy;{% now 'Y' %} GENERAL EQUIPOS DE COLOMBIA S.A. GECOLSA. TODOS LOS DERECHOS RESERVADOS &nbsp;|&nbsp; SOLUCIONES EMPRESARIALES POR <a href="https://axiacore.com/?utm_source=gecolsa&utm_medium=website&utm_campaign=fusion" target="_blank">AXIACORE</a>.
+            </div>
+        </div>
+    </footer>
+
+{% block js_globals %}{% endblock %}
+
+{% compress js %}
+    <script src="{% static 'node_modules/svg4everybody/dist/svg4everybody.min.js' %}"></script>
+    <script src="{% static 'node_modules/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'node_modules/jquery.cookie/jquery.cookie.js' %}"></script>
+    <script src="{% static 'node_modules/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'node_modules/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'node_modules/jquery-validation/dist/localization/messages_es.js' %}"></script>
+    <script src="{% static 'node_modules/sweetalert2/dist/sweetalert2.min.js' %}"></script>
+    <script src="{% static 'node_modules/bootstrap-select/js/bootstrap-select.js' %}"></script>
+    <script src="{% static 'node_modules/lightbox2/dist/js/lightbox.js' %}"></script>
+    <script src="{% static 'node_modules/typeahead.js/dist/typeahead.jquery.min.js' %}"></script>
+    <script src="{% static 'node_modules/typeahead.js/dist/bloodhound.min.js' %}"></script>
+    {% block js %}{% endblock %}
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/product-list.js' %}"></script>
+    <script src="{% static 'js/product-detail.js' %}"></script>
+    <script src="{% static 'js/shopping-cart.js' %}"></script>
+{% endcompress %}
+
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TF5JLW<http://www.googletagmanager.com/ns.html?id=GTM-TF5JLW>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TF5JLW');</script>
+  </body>
+</html>

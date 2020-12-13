@@ -1,0 +1,891 @@
+//
+// Shopping cart styles.
+//
+
+// Navigation.
+.cart-nav
+    margin-top: 30px
+    margin-bottom: 50px
+    width: 100%
+    font-size: 12px
+
+    @include grid-media($tablet)
+        font-size: 14px
+
+    ul.list-inline
+        margin-left: 0px
+
+    li
+        text-align: center
+        padding: 0
+
+        a
+            width: 99%
+            padding: 10px 5px
+            font-family: 'univers67', sans-serif
+            display: inline-block
+            color: $white-primary
+            background-color: $black-primary
+            border-bottom: 1px solid $white-primary
+
+        &.active a
+            background-color: $yellow-primary
+            color: $black-primary
+
+            @include grid-media($mobile)
+                width: 100%
+//
+// Media panel
+//
+.shopping-cart, .shipping-data
+    width: 100%
+    max-width: 320px
+    margin: auto
+
+    @include grid-media($tablet)
+        max-width: none
+
+    p.note
+        color: #993333
+
+    #div_id_city-shipping_city > label
+        color: #993333
+
+    .grid-product-detail
+        .col-product-detail
+            display: block
+
+            &:first-child
+                .next-step
+                    display: none
+
+                    @include grid-media($desktop)
+                        display: block
+
+                    .yellow-link-box
+                        float: right
+
+            &:last-child
+                margin-top: 0px
+
+                .next-step
+                    display: block
+
+                    @include grid-media($desktop)
+                        display: none
+
+                .yellow-link-box
+                    width: 100%
+
+// Cart wrapper.
+.shopping-cart
+    @include grid-media($tablet)
+        .cart-nav li
+            &:nth-child(1), &:nth-child(3)
+                a
+                    border-right: none
+
+    .cart-body
+        .section-title
+            font-family: 'univers67', sans-serif
+            margin-bottom: 60px
+
+        > .col-md-9
+            padding-left: 0
+            padding-right: 0
+            max-width: 670px
+
+        > .col-md-3
+            padding: 0
+
+            @include grid-media($desktop)
+                float: right
+
+    .cart-item
+        position: relative
+        min-height: 165px
+
+        @include grid-media($tablet)
+            > .col-sm-3
+                width: 150px
+
+        .col-sm-6
+            padding-left: 0
+
+        .with-discount
+            text-decoration: line-through
+
+        .discounted-price
+            color: $red-primary
+
+    .container .actions
+        margin: 20px 0px
+
+.sell-confirmation
+    .purchase-title
+        margin-top: 65px
+
+        .text-center
+            h4, h5
+                font-family: 'univers67', sans-serif
+
+            h5
+                font-weight: 300
+
+        .lead
+            font-weight: 400
+            margin-top: 60px
+            padding: 0px 20px
+
+            @include grid-media($desktop)
+                font-size: 19px
+                padding: 0px 175px
+
+    .purchase-info
+        background-color: $gray-secondary
+        margin-bottom: 25px
+
+        .product-listing
+            .content
+                padding: 27px 20px
+                border-bottom: 1px solid $gray-septenary
+
+                &:last-child
+                    border-bottom: none
+
+                @include grid-media($desktop)
+                    padding: 27px 175px
+
+                .row
+                    margin: 0px
+
+                    .title-preference
+                        padding-top: 0px
+
+                        @include grid-media($tablet)
+                            padding-top: 42px
+
+                    .title-preference,
+                    .preference,
+                    .price
+                        display: inline-block
+                        text-align: center
+
+                        @include grid-media($tablet)
+                            display: block
+
+                    .col-product-list
+                        padding-left: 0px
+
+                    .title-preference
+                        color: #706f6f
+                        font-weight: bold
+
+                &.additional-info
+                    p
+                        padding: 0px
+
+                        @include grid-media($tablet)
+                            padding: 30px 0px
+
+                    h6
+                        padding: 0px
+
+                        @include grid-media($tablet)
+                            padding: 15px 0
+
+                .title
+                    font-family: 'univers67', sans-serif
+                    font-weight: 400
+                    font-size: 18px
+
+                    a
+                        color: $black-primary
+
+                .table-inline
+                    li
+                        span:first-child
+                            color: $gray-senary
+                            font-weight: bold
+
+                &.additional-info
+                    p
+                        font-weight: bold
+                        margin: 0
+
+                    table
+                        thead
+                            tr
+                                th:nth-child(1)
+                                    width: 95px
+                                th:nth-child(2)
+                                    width: 59px
+                .col-sm-6
+                    padding: 0px
+
+        .total .row .col-product-list
+            .price-total
+                text-align: right
+
+                @include grid-media($tablet)
+                    text-align: center
+
+            &:nth-child(2)
+                padding-right: 0px
+
+                @include grid-media($tablet)
+                    padding-right: 15px
+
+        .heading
+            background-color: $gray-quaternary
+            font-family: 'univers67', sans-serif
+            color: $white-primary
+            margin-top: 0
+            padding: 5px 20px
+            font-size: 16px
+
+            @include grid-media($desktop)
+                padding: 5px 175px
+
+        .total
+            color: #ffc000
+            padding: 15px 20px
+            font-size: 17px
+            background-color: $black-primary
+
+            > span:nth-child(1)
+                color: $yellow-primary
+
+            span:nth-child(2)
+                color: $white-primary
+
+            @include grid-media($desktop)
+                padding: 15px 175px
+
+            .row
+                margin: 0px
+
+                .col-product-list
+                    padding-left: 0px
+
+                    .price-total
+                        color: #ffffff
+
+    .container
+        .container
+            padding: 0px
+            width: 100%
+
+            .actions
+                margin-bottom: 60px
+                margin-top: 30px
+
+                a
+                    display: block
+
+                    @include grid-media($tablet)
+                        display: inline-block
+
+                .js-confirmation-print
+                    margin-right: 0px
+                    margin-bottom: 10px
+
+                    @include grid-media($tablet)
+                        margin-right: 10px
+                        margin-bottom: 0px
+
+
+
+.product-list
+    .container
+        @include grid-media($desktop)
+            padding-right: 0px
+
+    .js-product-list-filter
+        width: 200px
+
+// Product tag.
+.product-tag
+    font-family: 'univers67', sans-serif
+    display: inline-block
+    background-color: $black-primary
+    color: $white-primary
+    font-size: 11px
+    text-transform: uppercase
+    padding: 2px 5px
+    text-overflow: ellipsis
+    overflow: hidden
+    max-width: 170px
+    white-space: nowrap
+
+// Cart items.
+.cart-item
+    border-bottom: 1px solid $gray-secondary
+    margin-bottom: 60px
+
+    > .col-sm-3
+        padding-left: 0
+        margin-bottom: 25px
+        margin-right: 20px
+
+    &:last-child
+        border-bottom: none
+
+    .title
+        font-family: 'univers67', sans-serif
+
+        a
+            color: $black-primary
+            font-size: 18px
+
+    img
+        border: 1px solid $gray-quaternary
+
+    table
+        margin-bottom: 10px
+
+        th,
+        td
+            color: $gray-quinary
+
+        th:first-child
+            padding-left: 0
+
+        td:first-child
+            padding-left: 0
+
+        thead tr th
+            padding-bottom: 2px
+
+        tbody tr td
+            padding-top: 0
+
+        thead tr th,
+        tbody tr td
+            border: none
+            text-align: center
+
+        .price
+            color: $black-primary
+            font-weight: bold
+
+    .action-icons
+        position: absolute
+        top: 0
+        right: 0
+
+        li:first-child
+            border-right: 1px solid $gray-quaternary
+
+        a
+            color: $black-primary
+            font-size: 15px
+
+// Cart summary
+.cart-summary
+    li
+        text-transform: uppercase
+
+    .head, .total
+        padding: 15px 20px
+        font-family: 'univers67', sans-serif
+
+    .head
+        background-color: $gray-quaternary
+        border: 1px solid $gray-senary
+        margin-bottom: -1px
+
+    .total
+        background-color: $black-primary
+        color: $white-primary
+
+        > span:first-child
+            color: $yellow-primary
+
+    &.left-menu>li>a:hover
+        background-color: $gray-quaternary
+        color: $gray-tertiary
+        border-color: $gray-senary
+
+.lg-thumb-outer
+    .lg-thumb
+        margin: 0 auto -5px auto
+
+.lg-object
+    &.lg-image
+        border: 3px solid $yellow-primary
+
+.lg-outer .lg-thumb-item.active,
+.lg-outer .lg-thumb-item:hover
+    border-color: $yellow-primary
+//
+// Product detail
+// ------------------------
+.product-detail
+    max-width: 320px
+    margin: 40px auto 0px
+
+    @include grid-media($tablet)
+        max-width: none
+
+    .grid-products
+        .col-products
+            &:last-child
+                position: relative
+
+    .navegation-menu
+        display: block
+
+        @include grid-media($desktop)
+            display: none
+
+    .product-zoom
+        float: right
+        margin: 10px 32px 0 0
+
+        span
+            display: inline-block
+            opacity: .5
+
+
+    .product-actions
+        margin-top: 20px
+
+        .col-xs-3
+            width: 33%
+
+            @include grid-media($desktop)
+                width: 25%
+
+        .with-discount
+            margin-bottom: 0
+
+            #product_total_price
+                text-decoration: line-through
+
+        .discounted-price
+            color: $red-primary
+            font-weight: bold
+            padding-left: 20px
+            font-size: 15px
+
+            small
+                font-size: 11px
+
+    .product-info
+        padding-left: 0px
+        margin-bottom: 20px
+
+        @include grid-media($desktop)
+            padding-left: 20px
+            margin-bottom: 40px
+
+        .carousel-container
+            position: relative
+            overflow: hidden
+
+            ul
+                list-style-type: none
+
+            .lslide
+                margin: 0 auto
+                max-width: 412px
+                height: 240px
+                overflow: hidden
+                position: relative
+
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+
+            .lSSlideOuter .lSPager.lSGallery
+                li
+                    height: 80px
+
+                    &:hover,
+                    &.active
+                        border: 2px solid $yellow-primary
+
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+
+        .thumbnail-wrapper-no-slide
+            text-align: center
+            border: 1px solid $gray-senary
+            margin-top: 30px
+            width: 100%
+            padding: 20px
+
+            img
+                width: 100%
+
+    .description
+        margin-top: 20px
+
+        @include grid-media($tablet)
+            margin-top: 80px
+
+        .form-group
+            margin-bottom: 20px
+
+            label
+                margin-top: 8px
+                float: none
+
+                @include grid-media($mobile)
+                    float: left
+
+        #div_id_quantity, #div_id_size
+            .controls
+                max-width: 280px
+
+                @include grid-media($tablet)
+                    max-width: 237px
+
+        .yellow-link-box
+            max-width: 320px
+            width: 100%
+
+            @include grid-media($tablet)
+                width: auto
+
+
+    .product-tag
+        margin-bottom: 0
+
+    .title
+        margin-top: 0px
+        font-size: 20px
+
+        @include grid-media($tablet)
+            font-size: 26px
+
+    .price
+        margin: 0px
+        font-weight: 700
+        color: $gray-quinary
+
+        span:first-child
+            color: $black-primary
+
+    .product-carousel
+        width: 100%
+        margin-top: 30px
+        border: 1px solid $gray-senary
+        padding: 20px
+
+        .carousel-control
+            margin-top: -20px
+
+    .carousel-container
+        .image-zoom
+            display: block
+            margin-top: 10px
+
+    .view-cart
+        position: absolute
+        top: 0
+        right: 0
+        z-index: 1
+
+    .buy-product-form
+        margin-top: 20px
+
+        button[type="submit"]
+            display: none
+
+
+    .form-control
+        color: $gray-quinary
+        box-shadow: none
+        @include border-top-radius(0)
+        @include border-bottom-radius(0)
+
+        button
+            @include border-top-radius(0)
+            @include border-bottom-radius(0)
+
+    .form-group
+        label
+            font-weight: bold
+
+    .form-group
+        &:after,
+        &:before
+            content: " "
+            display: table
+
+        &:after
+            clear: both
+
+    .form-group:nth-child(11)
+        .controls
+            width: 100%
+
+    .autocomplete-light-widget
+        width: 100%
+
+        .form-control
+            width: 100%
+
+    .form-control, .dropdown-toggle
+        background-color: rgba(0,0,0,0)
+
+    .product-footer
+        margin: 20px 0px
+        text-align: left
+        border-top: 1px solid $gray-senary
+        padding: 30px 0px 20px
+
+        .yellow-link-box
+            display: block
+            max-width: 280px
+
+            @include grid-media($tablet)
+                display: inline-block
+
+            &:first-child
+                margin-bottom: 20px
+
+                @include grid-media($tablet)
+                    margin-bottom: 0px
+
+            &:last-child
+                float: none
+
+                @include grid-media($tablet)
+                    float: right
+
+    .add-product
+        text-align: left
+        padding: 0
+        margin: 10px 0
+
+        @include grid-media($mobile)
+            text-align: left
+            padding: 0
+            margin: 10px 0
+
+        .yellow-box
+            padding-left: calc(50% - 85px)
+            width: 100%
+            min-width: 200px
+            > span
+                display: table-cell
+                vertical-align: middle
+
+            @include grid-media($mobile)
+                width: auto
+                padding-left: 10px
+
+                > span
+                    display: table-cell
+                    vertical-align: middle
+
+    .lSAction > a
+        background-image: none
+
+//
+// Product list.
+// ------------------
+.product-list
+    margin: 40px 0px
+
+    .list-inline
+        margin-bottom: 0px
+
+        li
+            vertical-align: top
+
+            &:first-child
+                padding-left: 0px
+
+            &:last-child
+                padding-right: 0px
+
+    .js-product-list-filter
+        button
+            @include border-top-radius(0)
+            @include border-bottom-radius(0)
+
+    .product-list-actions
+        margin: 0px auto 20px
+        padding-bottom: 20px
+        border-bottom: 1px solid $gray-senary
+        max-width: 260px
+
+        @include grid-media($tablet)
+            margin: 0px auto 20px
+            max-width: 560px
+
+        @include grid-media($desktop)
+            margin: 0px 20px 20px
+            max-width: none
+
+        p
+            font-family: 'univers67', sans-serif
+            font-size: 16px
+            margin: 0px 0px 20px
+            padding: 9px 0px
+
+            @include grid-media($tablet)
+                margin: 0px
+
+        .form-group
+            margin-bottom: 0px
+
+        .col-sm-6
+            text-align: center
+            padding: 0px
+
+            @include grid-media($tablet)
+                &:first-child
+                    text-align: left
+
+                &:last-child
+                    text-align: right
+
+    .product-list-boxes
+        text-align: left
+
+        > li
+            &:hover
+                border-color: $gray-senary
+
+            > a:first-child
+                position: relative
+                width: 238px
+                height: 180px
+                overflow: hidden
+                margin: 10px
+
+                img
+                    position: absolute
+                    left: 50%
+                    top: 50%
+                    -webkit-transform: translate(-50%,-50%)
+                    -ms-transform: translate(-50%,-50%)
+                    transform: translate(-50%,-50%)
+
+                    &.horizontal_image
+                        height: 100%
+                        width: auto
+
+                    &.vertical_image
+                        width: 100%
+                        height: auto
+
+        .product-info
+            padding: 20px
+            min-height: 150px
+
+        .price,
+        .discounted-price
+            font-size: 15px
+            font-weight: bold
+            color: $gray-quinary
+            margin-bottom: 0px
+
+        .with-discount
+            margin-bottom: 0
+            text-decoration: line-through
+
+        .discounted-price
+            color: $red-primary
+
+            small
+                font-size: 11px
+
+            a
+                color: $black-primary
+
+    .form-control, .dropdown-toggle
+        background-color: rgba(0,0,0,0)
+
+// Shipping data
+// ---------------
+.shipping-data
+    .parallel-form
+        margin-bottom: 50px
+
+        .form-group:nth-child(7)
+            margin-bottom: 40px
+
+    [data-id="id_city-shipping_city"],
+    [data-id="id_customer_city"]
+        display: none
+
+    .go-back-link
+        color: $gray-tertiary
+        font-family: 'univers67', sans-serif
+
+    > .container
+        > .col-md-8
+            h4,
+            h6
+                font-family: 'univers67', sans-serif
+
+            h6
+                font-weight: normal
+                color: $black-primary
+
+            hr
+                margin: 40px 0
+
+            .form-control
+                font-size: 13px
+
+            .text-muted
+                color: $gray-senary
+
+        .rate-request,
+        .confirm-buy
+            margin-top: 40px
+            max-width: 560px
+
+        .disclaimer
+            font-size: 12px
+            color: $black-primary
+            line-height: 2
+
+        .delivery-policies
+            margin: 30px 0 25px
+            font-size: 13px
+
+            a
+                color: $red-primary
+                text-decoration: underline
+
+        .checkbox
+            font-size: 13px
+            color: $black-primary
+
+        .billing-title
+            margin-top: 30px
+
+        .billing-legend
+            margin-bottom: 40px
+
+    .error
+        color: $red-primary
+
+// Common to shopping cart sections.
+// -----------------------------------
+.cart-items-icon
+    #shopping_cart_count
+        position: absolute
+        background-color: #FFF
+        font-size: 11px
+        font-weight: 400
+        top: 16px
+        right: 7px
+        padding: 0 4px
+        line-height: 14px
+        @include border-top-radius(5px)
+        @include border-bottom-radius(5px)
+
+    .icon
+        @include size(22px)

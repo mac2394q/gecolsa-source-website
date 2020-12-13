@@ -1,0 +1,37 @@
+.account-container
+    margin: 50px auto
+
+    @include grid-media($tablet)
+        .container
+            max-width: 420px
+
+    h3
+        font-family: "univers67",sans-serif
+        font-size: 20px
+        text-align: center
+        margin-bottom: 30px
+
+    .form-control
+        border: 1px solid $gray-quinary
+        color: $gray-quinary
+        box-shadow: none
+        @include border-top-radius(0)
+        @include border-bottom-radius(0)
+
+    .yellow-link-box
+        width: 100%
+        padding: 6px 0px
+        text-align: center
+        @include border-top-radius(0)
+        @include border-bottom-radius(0)
+
+    .yellow-link-box:hover,
+    .yellow-link-box:focus,
+        background-color: $yellow-secondary
+        color: $black-primary
+
+    .form-links
+        display: block
+        text-align: center
+        margin-top: 15px
+        color: $black-primary

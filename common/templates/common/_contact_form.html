@@ -1,0 +1,13 @@
+{% load static %}
+    <form method="POST" action="{% url 'contact_form' %}" class="js-contact-form contact-form">
+        <h6 class="form-title">CONTÁCTENOS</h6>
+        {% csrf_token %}
+        {{ form }}
+        <a href="https://gecolsa.com/maquinaria/legal-general/">Acepto términos y condiciones</a>
+        <button type="submit" class="yellow-link-box send_yellow_button">
+            <span>Enviar</span>
+            <svg class="icon">
+                <use xlink:href="{% static 'svg/icons.svg' %}#arrow-btn"></use>
+            </svg>
+        </button>
+    </form>

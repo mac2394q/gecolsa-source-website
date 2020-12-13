@@ -1,0 +1,19 @@
+{% load html_helpers %}
+
+{{ object.title }}
+{{ object.title|unaccent }}
+
+{{ object.title }}
+{{ object.title|unaccent }}
+
+{{ object.brand }}
+{{ object.brand|unaccent }}
+
+{{ object.place }}
+{{ object.place|unaccent }}
+{% for cat in object.sucategories.all %}
+{{ cat.title }}
+{{ cat.title|unaccent }}
+{{ cat.category.title }}
+{{ cat.category.title|unaccent }}
+{% endfor %}

@@ -1,0 +1,10 @@
+{% if item.is_active %}
+    <h5 class="title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h5>
+    <ul class="list-unstyled hidden-xs hidden-sm">
+    {% for second_level_item in item.children.all %}
+    {% if second_level_item.is_active %}
+        <li><a href="{% if equipment_type == 'usados' %}{% url 'equipment:used_equipment_list' second_level_item.slug %}{% else %}{{ second_level_item.get_absolute_url }}{% endif %}">{{ second_level_item.title }}</a></li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+{% endif %}

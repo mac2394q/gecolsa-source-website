@@ -1,0 +1,8 @@
+{% load thumbnail %}
+{% thumbnail item.get_image.image "145x100" crop="center" as im %}
+{% if im %}
+    <img src="{{ im.url }}" alt="{{ item.article_name }}"></a>
+{% else %}
+    <b>No Image</b>
+{% endif %}
+{% endthumbnail %}

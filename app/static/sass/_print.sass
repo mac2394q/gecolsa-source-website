@@ -1,0 +1,90 @@
+//
+// Print styles
+//
+
+@media print
+    
+    body
+        font-family: Arial, Helvetica, sans-serif !important
+        
+    @page
+        margin: 0.5cm
+
+    .product-tag
+        background-color: $yellow-primary !important
+        -webkit-print-color-adjust: exact
+
+    .product-tag-triangle
+        border-left-color: $yellow-primary !important
+
+    .breadcrumb
+        display: none
+
+    .sell-confirmation
+        .actions,
+        .cart-nav
+            display: none
+
+    footer
+        .links
+            p
+                max-width: 90% !important
+
+            .row
+                div:nth-child(2)
+                    display: none
+
+                div:nth-child(3)
+                    width: 50% !important
+
+                .logo
+                    width: 50% !important
+
+                    img
+                        max-width: 160px
+            
+                    a:after
+                        content: none !important
+
+        .navigation,
+        .partners,
+        .credits
+            display: none
+
+    .purchase-title
+        margin-top: 40px !important
+        
+        &:before
+            display: block
+            content: "Confirmación de compra - Gecolsa"
+            text-align: center
+            margin-bottom: 15px
+
+        .lead
+            padding: 0px 20px !important
+            margin-top: 20px !important
+            text-align: center
+
+    .purchase-info
+        .heading
+            color: #fff !important
+            padding: 3px 20px !important
+            background-color: #999 !important
+            -webkit-print-color-adjust: exact
+            
+        .product-listing
+            .heading
+                margin: 10px 0px 20px 0px !important
+
+            .content
+                padding: 0px 20px 15px 20px !important
+                margin: 0px 0px 15px 0px !important
+                border-bottom: 1px solid #ccc !important
+
+                .row
+                    .title-preference
+                        color: $gray-tertiary !important
+
+        .shipping-info
+            .content
+                padding: 0px 20px !important

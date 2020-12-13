@@ -1,0 +1,27 @@
+{% load product_tags static %}
+<!-- CHILDREN LIST LAYOUT -->
+
+<div class="gp-page-item {% if forloop.counter|divisibleby:2 %}even{% endif %}">
+    <div class="container">
+        <div class="gird-2">
+            <div class="col-grid-2 lazy-page-img">
+        {% if page_child.list_image %}
+            {% image_style page_child.list_image "page" as image_style %}
+            {% if image_style %}
+                <a href="{{ page_child.get_absolute_url }}"><img class="lazy" data-original="{{ page_child.list_image.url }}" alt="{{ page_child.title }}"></a>
+            {% endif %}
+        {% endif %}
+            </div>
+            <div class="col-grid-2">
+                <h5><a href="{{ page_child.get_absolute_url }}">{{ page_child }}</a></h5>
+                <div class="gp-page-text">{{ page_child.summary|safe }}</div>
+                <a class="yellow-link-box" href="{{ page_child.get_absolute_url }}">
+                    <span>Ver más</span>
+                    <svg class="icon">
+                        <use xlink:href="{% static 'svg/icons.svg' %}#arrow-btn"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

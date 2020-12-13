@@ -1,0 +1,97 @@
+{% extends "layout/base.html" %}
+{% load product_tags block_tags static %}
+
+{% block title %}Comunicación |{% endblock %}
+
+{% block header %}
+{% with 'communication'|get_fixed_block as block %}
+    <div class="text-heading" style="background-image: url({{ block.image.url }});">
+        <div class="container">
+            <h1>{{ block.title }}</h1>
+            <div class="summary">{{ block.summary }}</div>
+        </div>
+    </div>
+{% endwith %}
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumb-container">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'home' %}">Home</a></li>
+        {% if current_communication_category %}
+            <li><a href="{% url 'cms:communication_list' %}">Comunicación</a></li>
+            <li class="active">{{ current_communication_category.title }}</li>
+        {% else %}
+            <li class="active">Comunicación</li>
+        {% endif %}
+        </ol>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="communication-list home">
+    <div class="nav-container">
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li {% if not current_communication_category %}class="active"{% endif %}><a href="{% url 'cms:communication_list' %}">Todos</a></li>
+            {% for communication_category in communication_categories %}
+                <li {% ifequal communication_category current_communication_category %}class="active"{% endifequal %}>
+                    <a href="{% url 'cms:communication_by_category_list' communication_category.slug %}">{{ communication_category.title }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="comunicaction-list-item container js-masonry">
+        {% for communication in communications %}
+            <div class="item">
+                <a href="{{ communication.get_absolute_url }}">
+                {% image_style communication.list_image "communication" as image_style %}
+                {% if image_style %}
+                    <div class="cover-image lazy" data-original="{{ communication.list_image.url }}" style="background-image:url({% static 'img/background-gray.png' %}){% if forloop.counter != 2 %};background-position:0 50%{% endif %}; background-size: cover;"></div>
+                {% endif %}
+                    <div class="info-comunication">
+                        <div class="category">{{ communication.category }}</div>
+                        <h2>{{ communication.title }}</h2>
+                        <p>{{ communication.content|striptags|safe|truncatechars:300 }}</p>
+                        <a href="{{ communication.get_absolute_url }}" class="link-icon">
+                            <div class="text">Ver más</div>
+                            <div class="circle">
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#arrow"></use>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% if not current_communication_category %}
+    {% get_link_list 'communication' %}
+{% elif current_communication_category.has_footer %}
+    {% get_link_list current_communication_category %}
+{% endif %}
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'node_modules/masonry-layout/dist/masonry.pkgd.min.js' %}"></script>
+<script src="{% static 'node_modules/slick-carousel/slick/slick.min.js' %}"></script>
+<script src="{% static 'node_modules/jquery_lazyload/jquery.lazyload.js' %}"></script>
+<script src="{% static 'js/communication.js' %}"></script>
+
+<script type="text/javascript">
+$(function() {
+    'use strict';
+    $('.js-masonry').masonry({
+      itemSelector: '.item',
+    });
+});
+</script>
+
+{% endblock %}

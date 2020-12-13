@@ -1,0 +1,9 @@
+<div class="gp-page-list">
+{% for page_child in page.children.all %}
+    {% if page_child.content|length > 20 or page_child.children.exists %}
+        {% include "cms/_children_with_content.html" %}
+    {% else %}
+        {% include "cms/_children_without_content.html" %}
+    {% endif %}
+{% endfor %}
+</div>

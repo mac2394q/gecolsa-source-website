@@ -1,0 +1,76 @@
+{% extends 'layout/base.html' %}
+{% load crispy_forms_tags block_tags static %}
+
+{% block title %}Contacto |{% endblock %}
+
+{% block header %}
+{% with 'contact'|get_fixed_block as block %}
+    <div class="text-heading" style="background-image: url({{ block.image.url }});">
+        <div class="container">
+            <h1>{{ block.title }}</h1>
+            <div class="summary">{{ block.summary }}</div>
+        </div>
+    </div>
+{% endwith %}
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumb-container">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="active">Contacto</li>
+        </ol>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="contact-form">
+    <div class="toll-free-banner text-center">
+        <h5><span class="gp-img-md-yellow-phone icon"></span> LÍNEA GRATUITA NACIONAL <span>{{ config.PHONE_CONTACT }}</span></h5>
+    </div>
+    <div class="flex-link-list">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 {% if config.CHAT_URL %}col-sm-4{% else %}col-sm-6{% endif %} email">
+                    <a href="mailto:{{ email_contact }}" class="fluid-content">
+                        <h6>CORREO ELECTRÓNICO</h6>
+                        <span>{{ email_contact }}</span>
+                    </a>
+                </div>
+                {% if config.CHAT_URL %}
+                <div class="col-xs-12 col-sm-4 chat">
+                    <a class="js-chat-popup fluid-content" href="{{ config.CHAT_URL }}">
+                        <h6>CHAT</h6>
+                        <span>Comuníquese con nosotros</span>
+                    </a>
+                </div>
+                {% endif %}
+                <div class="col-xs-12 {% if config.CHAT_URL %}col-sm-4{% else %}col-sm-6{% endif %} offices">
+                    <a href="{% url 'office_list' %}" class="fluid-content">
+                        <h6>NUESTRAS SEDES</h6>
+                        <span>Encuentre la sede más cercana</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if object %}
+        {% include 'search/_rendered.html' with object=object %}
+    {% endif %}
+
+    <div class="container">
+        <p>Completa el siguiente formulario, selecciona el tema que describa con mayor exactitud tus necesidades, haz clic en el botón "Enviar" y en breve uno de nuestros especialistas y/o área de servicio al cliente se pondrá en contacto contigo, para brindarte la información solicitada.</p>
+
+        <p class="form-info">Todos los campos marcados con asterisco (*) son obligatorios.</p>
+
+        {% include 'common/_contact_form.html' %}
+
+    </div>
+    {% comment %}
+    {% get_link_list 'contact' %}
+    {% endcomment %}
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% load thumbnail static paginator_tags %}
+
+{% block render %}
+<div class="contact-product">
+    <div class="container">
+        <h6>Producto sobre el cual vas a pedir información</h6>
+        <div class="grid-single-object">
+            <div class="col-single-object">
+                <div class="image">
+                    <a href="{{ object.get_absolute_url }}" title="{{ object.get_search_result_title }}">
+                        {% thumbnail object.get_search_result_image "268x178" crop="center" as im %}
+                            <img src="{{ im.url }}" alt="{{ object.get_search_result_title }}">
+                        {% endthumbnail %}
+                    </a>
+                </div>
+            </div>
+            <div class="text col-single-object">
+                <a href="{{ object.get_absolute_url }}">
+                    <h5 class="title">{{ object.get_search_result_title }}</h5>
+                </a>
+                <p class="description">{{ object.get_search_result_description|safe }}</p>
+                <a class="yellow-link-box" href="{{ object.get_absolute_url }}">
+                    <span>Ver más</span>
+                    <svg class="icon">
+                        <use xlink:href="{% static 'svg/icons.svg' %}#arrow-btn"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

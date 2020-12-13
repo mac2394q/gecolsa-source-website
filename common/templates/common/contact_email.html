@@ -1,0 +1,18 @@
+{% extends "layout/base_email.html" %}
+{% block content %}
+<p>Hemos recibido mensaje de contacto de <b>{{ contact.name|capfirst }}</b>, <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>.</p>
+
+<ul>
+    <li><b>Celular</b>: {{ contact.mobile_number|default:"N/A" }}</li>
+    <li><b>Comentario</b>: {{ contact.comment }} </li>
+    <li><b>Lugar de contacto</b>: {{ contact.contact_by }} </li>
+    <li><b>Url</b>: <a href="{{ contact.full_path }}">Ver más</a></li>
+    {% if link %}<li><b>Interesado en</b>: <a href="{{ link }}">{{ link }}</a></li>{% endif %}
+{% if utm_dict %}
+{% for key, value in utm_dict.items %}
+    <li><b>{{ key }}</b>: {{ value }} </li>
+{% endfor %}
+{% endif %}
+</ul>
+
+{% endblock %}

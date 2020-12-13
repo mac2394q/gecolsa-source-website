@@ -1,0 +1,16 @@
+{% extends "layout/base_email.html" %}
+{% block content %}
+<p>{{ contact.name|capfirst }}, hemos recibido su mensaje de contacto.</p>
+
+<ul>
+    <li><b>Celular</b>: {{ contact.mobile_number|default:"N/A" }}</li>
+    <li><b>Email</b>: {{ contact.email }} </li>
+    <li><b>Comentario</b>: {{ contact.comment }} </li>
+    <li><b>Lugar de contacto</b>: {{ contact.contact_by }} </li>
+    <li><b>Url</b>: <a href="{{ contact.full_path }}">Ver más</a></li>
+</ul>
+
+<p>Gracias por su interés, estaremos contactándole.</p>
+
+{% endblock %}
+lorem50

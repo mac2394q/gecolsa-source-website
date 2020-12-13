@@ -1,0 +1,25 @@
+{% if page.is_active %}
+{% with page.get_parents as current_page_parents %}
+<div class="list-group pages-list-group hidden-sm hidden-xs {% if page.show_children and page.children.exists %}show-children{% endif %}">
+{% for second_level_page in second_level_pages %}
+{% if second_level_page.is_active %}
+    <a href="{{ second_level_page.get_absolute_url }}" class="list-group-item gp-accordion-second-level {% if second_level_page == page or second_level_page in current_page_parents %}active{% endif %}">{{ second_level_page }}</a>
+    {% if second_level_page == page or second_level_page in current_page_parents %}
+        {% for third_level_page in second_level_page.children.all %}
+        {% if third_level_page.is_active and third_level_page.content|length > 20 %}
+            <a href="{{ third_level_page.get_absolute_url }}" class="list-group-item gp-accordion-third-level {% if third_level_page == page or third_level_page in current_page_parents %}active{% endif %}">{{ third_level_page }}</a>
+            {% if third_level_page == page or third_level_page in current_page_parents %}
+                {% for forth_level_page in third_level_page.children.all %}
+                    {% if forth_level_page.is_active and forth_level_page.content|length > 20 %}
+                    <a href="{{ forth_level_page.get_absolute_url }}" class="list-group-item gp-accordion-forth-level {% if forth_level_page == page or forth_level_page in current_page_parents %}active{% endif %}">{{ forth_level_page }}</a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+{% endfor %}
+</div>
+{% endwith %}
+{% endif %}

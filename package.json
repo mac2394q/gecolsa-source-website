@@ -1,0 +1,37 @@
+{
+  "name": "gecolsa-website",
+  "author": "AxiaCore <info@axiacore.com>",
+  "main": "gulpfile.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:axiacore/gecolsa-website.git"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.1.5",
+    "bootstrap": "~3.3.7",
+    "bootstrap-select": "1.13.2",
+    "bourbon": "^5.1.0",
+    "bourbon-neat": "^3.0.0",
+    "browser-sync": "^2.24.7",
+    "graceful-fs": "^4.1.11",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "handlebars": "^4.3.0",
+    "jquery": "~3.3.1",
+    "jquery-validation": "1.18.0",
+    "jquery.cookie": "~1.4.1",
+    "jquery_lazyload": "~1.9.1",
+    "lg-thumbnail": "~1.1.0",
+    "lightbox2": "2.10.0",
+    "lightgallery": "~1.6.11",
+    "lightslider": "1.1.6",
+    "masonry-layout": "^4.2.2",
+    "slick-carousel": "^1.8.1",
+    "svg4everybody": "^2.1.9",
+    "sweetalert2": "^7.28.2",
+    "typeahead.js": "^0.11.1"
+  }
+}

@@ -1,0 +1,73 @@
+footer
+    border-top: 3px solid $yellow-primary
+    margin-top: 40px
+
+    .navigation
+        background-color: $black-primary
+        text-align: center
+        text-transform: uppercase
+        padding: 40px 0
+
+        @include grid-media($desktop)
+            text-align: left
+            font-size: 10px
+
+        .footer-links
+            @include clearfix
+
+            .col
+                width: 100%
+                float: left
+                padding: 0px
+
+                @include grid-media($desktop)
+                    width: 25%
+                    padding: 0px 20px
+
+
+                &:first-child
+                    padding-left: 0px
+
+                &:last-child
+                    padding-right: 0px
+
+        ul
+            font-weight: 700
+            margin-bottom: 20px
+
+            li
+                padding: 3px 0px
+
+        .title
+            font-family: 'univers67', sans-serif
+            margin-top: 0
+            margin-bottom: 20px
+            font-size: 16px
+
+            @include grid-media($desktop)
+                font-size: 14px
+
+        a
+            color: $white-primary
+
+            &:hover
+                color: $yellow-primary
+                text-decoration: none
+
+    .credits
+        background-color: $white-primary
+        color: $black-primary
+        padding: 33px 0
+        font-family: 'univers67', sans-serif
+        font-size: 10px
+        text-align: center
+
+        .gp-img-logo-anthropologic
+            display: inline-block
+
+        p
+            width: 100%
+
+        a
+            color: $black-primary
+            text-decoration: underline

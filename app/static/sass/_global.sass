@@ -1,0 +1,1076 @@
+// Global styles
+body
+    font-family: 'univers', sans-serif
+    font-weight: 400
+    font-size: 14px
+    min-width: 320px
+    margin: 0 auto
+    overflow-x: hidden
+    overflow-y: visible
+    color: $black-primary
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+.container
+    width: 100%
+    max-width: $max-width
+    padding: 0px 20px
+
+.menu-icon
+    .stripe
+        width: 30px
+        height: 4px
+        background-color: $black-primary
+        margin-bottom: 5px
+
+        &:last-child
+            margin-bottom: 0px
+
+.link-icon
+    border: 0
+    color: $black-primary
+    font-size: 12px
+    font-weight: 700
+    padding: 0
+    text-transform: uppercase
+
+    &:hover
+        color: $black-primary
+        text-decoration: none
+
+        .circle
+            background-color: $black-primary
+
+            .icon
+                fill: $white-primary
+
+    .circle
+        @include border-bottom-radius(50%)
+        @include border-top-radius(50%)
+        @include size(14px)
+        background-color: $yellow-primary
+        position: relative
+        transition: all 0.3s ease-out
+
+        .icon
+            @include position(absolute, 0 0 0 0)
+            @include size(12px)
+            margin: auto
+
+    .text, .circle
+        display: inline-block
+        vertical-align: middle
+
+a, .icon
+    transition: all 0.3s ease-out
+
+h5
+
+    a
+        color: $black-primary
+
+        &:hover
+            color: $black-primary
+
+p
+    font-size: 16px
+
+.slick-slider
+    margin-bottom: 0px
+
+.slick-dots
+    bottom: -40px
+    height: 40px
+
+    li
+        vertical-align: top
+        margin: 10px 5px
+
+.slider-container
+    position: relative
+
+    .slider
+        margin-top: 20px
+        margin-bottom: 40px
+        z-index: 1
+        height: 500px
+        overflow: hidden
+
+        @include grid-media($tablet)
+            height: 380px
+
+        .slide
+            background-position: 50%
+            background-repeat: no-repeat
+            background-size: cover
+            height: 460px
+            position: relative
+
+            @include grid-media($tablet)
+                height: 340px
+
+            &:before
+                content: ""
+                z-index: 1
+                background: rgba(0, 0, 0, 0.4)
+
+            .container
+                display: table
+                margin-top: 130px
+                height: 260px
+
+    .slider-home
+        .slick-dots
+            bottom: 0px
+
+.carousel-control
+    background-color: $black-primary
+    top: 50%
+    margin-top: -40px
+    z-index: 2
+    opacity: 0.6
+    transition: opacity 0.3s ease-out
+    @include size(40px)
+
+    &:hover
+        opacity: 1
+
+    &.left
+        left: 0px
+
+        .icon
+            transform: rotate(180deg)
+
+    &.right
+        right: 0px
+
+    .icon
+        fill: $white-primary
+        @include size(40px)
+
+        &:hover
+            fill: $white-primary
+
+.slick-dots > li > button
+    color: transparent
+
+.slick-slide img
+    width: 100%
+
+.chat-box
+    background-color: $black-primary
+    border-bottom: 2px solid $yellow-primary
+    padding: 10px 30px
+    position: fixed
+    bottom: 0
+    right: 0
+    text-transform: uppercase
+    font-family: 'univers67', sans-serif
+    z-index: 10
+
+    .gp-img-icon-chat
+        display: inline-block
+        vertical-align: middle
+        margin-right: 5px
+
+    a
+        color: $white-primary
+
+.pagination
+    width: 100%
+    padding: 0px 4px
+
+    p
+        text-align: center
+
+        @include grid-media($desktop)
+            text-align: right
+
+    a
+        color: $black-primary
+
+// Backgrounds
+// -------------
+
+.bg-gray-tertiary
+    background-color: $white-primary
+
+    &.stripped
+        border-bottom: 1px solid $gray-tertiary
+
+.bg-gray-quaternary
+    background-color: $gray-quaternary
+
+// Buttons
+// --------------
+.send_yellow_button
+    margin-top: 30px
+
+.yellow-link-box
+    background-color: $yellow-primary
+    color: $black-primary
+    padding: 10px 70px 10px 20px
+    text-align: left
+    text-transform: uppercase
+    font-size: 16px
+    font-family: 'univers67', sans-serif
+    display: block
+    position: relative
+    border: none
+    transition: all 0.3s ease-out
+
+    &:hover
+        background-color: $yellow-secondary
+        color: $black-primary
+        text-decoration: none
+
+    .icon
+        position: absolute
+        right: 10px
+        top: 50%
+        margin-top: -10px
+        @include size(20px)
+
+    &.small
+        padding: 10px 70px 10px 9px
+        font-size: 12px
+
+    &.medium
+        padding: 20px 70px 20px 18px
+        height: 80px
+
+    &[disabled="disabled"],
+    &[disabled],
+    .disabled
+        background-color: $gray-septenary
+
+.yellow-box
+    background-color: $yellow-primary
+    color: $black-primary
+    padding: 6.5px 9px
+    text-align: left
+    text-transform: uppercase
+    font-size: 16px
+    font-weight: 700
+    font-family: 'univers67', sans-serif
+    display: inline-block
+    position: relative
+    @include border-top-radius(0px)
+    @include border-bottom-radius(0px)
+
+    &:hover
+        background-color: $yellow-secondary
+
+    span
+        display: inline-block
+
+
+.btn-plus
+    background: $black-primary
+    padding: 0 6px
+    line-height: 19px
+    text-align: center
+    color: $yellow-primary
+    border-radius(50%)
+
+    &:hover
+        color: $yellow-primary
+        opacity: .7
+
+.top-separation
+    margin-top: 20px
+
+// Image link list
+// --------------
+.image-link-list
+    margin: 40px 0px
+
+    .row>div
+        border: 1px solid $white-primary
+        background-size: cover
+        background-position: 50%
+
+    a
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+
+        height: 80px
+        text-align: center
+        text-transform: uppercase
+        font-family: 'univers67', sans-serif
+        color: $white-primary
+        font-size: 18px
+        text-decoration: none
+
+        @include grid-media($tablet)
+            height: 120px
+            font-size: 24px
+
+
+.color-yellow-primary
+    color: $yellow-primary
+
+.breadcrumb-container
+    background-color: $gray-secondary
+    font-weight: 700
+    text-transform: uppercase
+
+.breadcrumb
+    font-size: 12px
+    margin-bottom: 0
+    padding: 11.5px 0px
+    background-color: $gray-secondary
+    @include border-top-radius(0px)
+    @include border-bottom-radius(0px)
+
+    li
+        display: none
+
+        &:nth-last-child(2):not(:first-child)
+            display: inline-block
+
+            &:before
+                content: "< "
+
+        &:nth-last-child(2):first-child
+            display: inline-block
+
+        &:last-child:first-child
+            display: inline-block
+
+        @include grid-media($tablet)
+            display: inline-block
+
+            &:nth-last-child(2):not(:first-child)
+                &:before
+                    content: ">"
+
+        + li:before
+            color: $gray-tertiary
+            content: ">"
+
+    > .active
+        color: $black-primary
+
+    a
+        color: $gray-tertiary
+
+.image-zoom
+    font-weight: 700
+    text-transform: uppercase
+    color: $black-primary
+    font-size: 12px
+    @include size(120px, 20px)
+
+    &:hover
+        color: $yellow-primary
+        text-decoration: none
+
+        .icon
+            fill: $yellow-primary
+
+    .icon
+        vertical-align: middle
+        @include size(20px)
+
+.navegation-menu
+    margin-bottom: 20px
+
+    .back-btn .icon
+        transform: rotate(180deg)
+
+// GRIDS PRODUCTS
+// ---------------
+.grid-products
+    @include clearfix
+
+    .col-products
+        float: left
+
+        &:first-child
+            width: 260px
+            display: none
+
+            @include grid-media($desktop)
+                display: block
+
+        &:last-child
+            width: 100%
+            padding-left: 0px
+
+            @include grid-media($desktop)
+                width: calc(100% - 260px)
+                padding-left: 20px
+
+.grid-products-list
+    padding: 0px
+    margin: 0px auto
+    list-style: none
+    width: 260px
+    @include clearfix
+
+    @include grid-media($tablet)
+        width: 600px
+
+    @include grid-media($desktop)
+        width: 100%
+
+    &.no-left-menu
+        @include grid-media($desktop)
+            text-align: center
+            width: 900px
+
+        @include grid-media($desktop-xl)
+            width: 1200px
+
+    > li
+        float: left
+        margin: 0px 0px 40px
+        @include size(260px, 178px)
+
+        @include grid-media($tablet)
+            margin: 0px 20px 40px
+
+        .lazy-img
+            width: 218px
+            height: 180px
+            margin: 20px 20px 0px
+            line-height: 175px
+
+        .lazy-category-img
+            width: 258px
+            height: 140px
+            line-height: 135px
+
+        .lazy-img, .lazy-category-img
+            position: relative
+            overflow: hidden
+
+            img
+                position: absolute
+                left: 50%
+                top: 50%
+                -webkit-transform: translate(-50%,-50%)
+                -ms-transform: translate(-50%,-50%)
+                transform: translate(-50%,-50%)
+
+                &.horizontal_image
+                    height: 100%
+                    width: auto
+
+                &.vertical_image
+                    width: 100%
+                    height: auto
+
+.grid-search-used
+    @include grid-container
+
+    .col-search-used
+        @include grid-column(12)
+
+        @include grid-media($tablet)
+            @include grid-column(3)
+
+.grid-product-detail
+    @include clearfix
+
+    .col-product-detail
+        float: left
+
+        &:first-child
+            width: 100%
+            padding-calc: 0px
+
+            @include grid-media($desktop)
+                width: calc(100% - 260px)
+                padding-right: 40px
+
+        &:last-child
+            width: 260px
+            display: none
+            margin-top: 55px
+
+            @include grid-media($desktop)
+                display: block
+
+.comunicaction-list-item
+    padding: 0px
+    margin: 0px auto
+    list-style: none
+    width: 300px
+    @include clearfix
+
+    @include grid-media($tablet)
+        width: 600px
+
+    @include grid-media($desktop)
+        width: 900px
+
+    @include grid-media($desktop-xl)
+        width: 1200px
+
+    .item
+        margin: 0px 20px 40px
+        @include size(260px, auto)
+
+.grid-online-detail
+    @include clearfix
+
+    .col-online-detail
+        float: left
+        width: 100%
+        padding-right: 0px
+        padding-left: 0px
+
+        @include grid-media($tablet)
+            width: 50%
+
+        &:first-child
+            @include grid-media($tablet)
+                padding-right: 20px
+
+        &:last-child
+            @include grid-media($tablet)
+                padding-left: 20px
+
+.grid-single-object
+    @include clearfix
+
+    .col-single-object
+        float: left
+        width: 100%
+
+        @include grid-media($tablet)
+            width: 50%
+
+        &:first-child
+            @include grid-media($tablet)
+                padding-right: 20px
+
+        &:last-child
+            @include grid-media($tablet)
+                padding-left: 20px
+
+// LEFT MENU PRODUCTS
+// -------------------
+
+.left-menu
+    list-style: none
+    padding: 0px
+    line-height: 25.2px
+    margin-bottom: 40px
+
+    a
+        font-family: 'univers', sans-serif
+        position: relative
+        display: block
+        text-decoration: none
+        padding: 6.5px 20px
+        border: 1px solid $gray-senary
+        margin-bottom: -1px
+        z-index: 1
+
+    > li
+        > a
+            font-family: "univers67", sans-serif
+            text-transform: uppercase
+            color: $gray-tertiary
+            background-color: $gray-quaternary
+
+            &:hover
+                background-color: $black-primary
+                color: $white-primary
+                border-color: $black-primary
+
+        &.active > a
+            color: $white-primary
+            background-color: $black-primary
+            border-color: $black-primary
+            border-bottom: 2px solid $yellow-primary
+            z-index: 2
+
+            &:hover
+                background-color: $black-primary
+
+        > ul li
+            > a
+                color: $gray-tertiary
+                background-color: $white-primary
+
+                &:hover
+                    color: $black-primary
+
+            &.active > a
+                color: $white-primary
+                background-color: $gray-tertiary
+                border-color: $gray-tertiary
+
+            >ul li
+                > a
+                    color: $gray-tertiary
+                    background-color: $white-primary
+                    padding: 6.5px 20px 6.5px 40px
+
+                &.active > a
+                    color: $black-primary
+                    background-color: $yellow-primary
+                    border-color: $yellow-primary
+
+                    &:before
+                        content: ""
+                        width: 21px
+                        background-color: $white-primary
+                        border-top: 1px solid $gray-senary
+                        border-bottom: 1px solid $gray-senary
+                        border-left: 1px solid $gray-senary
+                        height: calc(100% + 2px)
+                        @include position(absolute, -1px null null -1px)
+
+// INPUTS
+//--------
+#{$all-text-inputs}
+    height: 40px
+    border: 1px solid $gray-senary
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+    box-shadow: none
+    color: $black-primary
+    @include border-top-radius(0px)
+    @include border-bottom-radius(0px)
+
+.btn
+    padding: 9px 12px
+    border: 1px solid $gray-senary
+    @include border-top-radius(0px)
+    @include border-bottom-radius(0px)
+
+.form-control
+    height: 40px
+    color: $black-primary
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+    box-shadow: none
+    @include border-top-radius(0px)
+    @include border-bottom-radius(0px)
+
+
+.contact-form
+    margin: 30px 0
+
+    .form-title
+        text-align: center
+        font-size: 16px
+
+    .form-error
+        color: $red-primary
+        line-height: 1.1
+
+.form-group
+    label
+        &.error
+            color: $red-primary
+            display: block
+            margin-top: 5px
+
+    .errorlist
+        color: $red-primary
+        list-style: none
+        padding: 0
+
+        li
+        margin-top: 5px
+
+label
+    font-family: 'univers67', sans-serif
+    text-transform: uppercase
+    color: $gray-tertiary
+    font-size: 12px
+    display: block
+    font-weight: 400
+
+hr
+    margin-top: 40px
+    margin-bottom: 40px
+
+.tt-menu
+    background-color: $white-primary
+    padding: 20px
+    border: 1px solid $gray-senary
+
+.search-characteristic
+    font-size: 14px
+    padding-bottom: 5px
+
+    .title
+        color: $gray-tertiary
+
+.product-contact-tag
+    font-family: 'univers67', sans-serif
+    display: inline-block
+    background-color: $black-primary
+    color: #fff
+    font-size: 11px
+    text-transform: uppercase
+    padding: 2px 5px
+    margin-bottom: 5px
+
+// Sweet alert overwrites
+// -----------------------
+.sweet-overlay
+    background-color: rgba(0,0,0,.8)
+
+.sweet-alert
+    background-color: $black-primary
+    color: $white-primary
+    border: 1px solid $yellow-primary
+    @include border-top-radius(0)
+    @include border-bottom-radius(0)
+
+    h2
+        text-transform: uppercase
+        font-size: 19px
+        padding: 0 60px
+        font-weight: bold
+        font-family: "univers67", sans-serif
+        line-height: 1.5
+        color: $white-primary
+        margin-bottom: 10px
+
+    p
+        font-size: 21px
+        color: $white-primary
+        margin-bottom: 20px
+
+    .sa-success
+        &:before, &:after
+            background: #000000 !important
+
+        .sa-placeholder
+            border: 4px solid rgba(165,220,134,.7) !important
+
+        .sa-fix
+            background-color: #000000 !important
+
+    // All buttons have the same style.
+    button
+        padding: 13px 25px
+        margin: 0 5px
+        border: none
+        font-family: "univers67", sans-serif
+        font-size: 13px
+        text-transform: uppercase
+        background-color: $yellow-primary
+        color: $black-primary
+        outline: none
+        @include border-top-radius(0)
+        @include border-bottom-radius(0)
+
+        &:hover
+            background-color: $yellow-primary
+            color: $black-primary
+            opacity: .85
+
+        &:active, &:focus
+            background-color: $yellow-primary
+            border: none
+            box-shadow: none
+
+// Sidebar box
+// -----------------
+.sidebar-box
+    text-align: center
+    padding: 10px
+    background-color: $black-primary
+    min-height: 105px
+    display: inline-table
+    width: 100%
+    position: relative
+    background-size: cover
+    background-position: 50%
+
+    a > h6
+        display: inline-block
+
+    h6
+        width: 100%
+        text-transform: uppercase
+        color: white
+        display: table-cell
+        vertical-align: middle
+        font-family: 'univers67', sans-serif
+        margin: 0
+
+    > a
+        text-decoration: none
+        display: table-cell
+        vertical-align: middle
+
+        &:hover
+            opacity: .8
+
+    .city-select
+        position: absolute
+        bottom: -49px
+        left: 0
+        right: 0
+
+        .controls
+            width: 100%
+
+            .btn-group
+                @include border-top-radius(0)
+                @include border-bottom-radius(0)
+
+        .btn-default
+            background-color: rgba(0,0,0,0)
+            outline: none
+
+    &.closest-office
+        background-image: url('../img/closest-office-box-bg.png')
+        margin-bottom: 50px
+
+// table responsive
+.table-responsive >.table
+    >thead>tr>th, >thead>tr>td, >tbody>tr>th, >tbody>tr>td, >tfoot>tr>th, tfoot>tr>td
+        white-space: normal
+
+// For some reason the Bootstrap-carosuel styles that we're loading are not
+// working properly on safari, so we hace to overwrite them here.
+.carousel-inner
+    position: relative
+
+.carousel-inner
+    position: relative
+    width: 100%
+    overflow: hidden
+
+.carousel-inner>.item
+    position: relative
+    display: none
+    transition: .6s ease-in-out left
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img
+    line-height: 1
+
+
+@media all and (transform-3d), (-webkit-transform-3d)
+    .carousel-inner>.item
+        transition: transform .6s ease-in-out
+        backface-visibility: hidden
+        perspective: 1000
+
+    .carousel-inner>.item.next, .carousel-inner>.item.active.right
+        left: 0
+        transform: translate3d(100%, 0, 0)
+
+    .carousel-inner>.item.prev, .carousel-inner>.item.active.left
+        left: 0
+        transform: translate3d(-100%, 0, 0)
+
+    .carousel-inner>.item.next.left, .carousel-inner>.item.prev.right,
+    .carousel-inner>.item.active
+        left: 0
+        transform: translate3d(0, 0, 0)
+
+.carousel-inner>.active, .carousel-inner>.next, .carousel-inner>.prev
+    display: block
+
+.carousel-inner>.active
+    left: 0
+
+.carousel-inner>.next, .carousel-inner>.prev
+    position: absolute
+    top: 0
+    width: 100%
+
+.carousel-inner>.next
+    left: 100%
+
+.carousel-inner>.prev
+    left: -100%
+
+.carousel-inner>.next.left, .carousel-inner>.prev.right
+    left: 0
+
+.carousel-inner>.active.left
+    left: -100%
+
+.carousel-inner>.active.right
+    left: 100%
+
+//
+// Styles for menu similar to the
+// category detail.
+//
+.menu-panel
+    a
+        display: block
+        text-decoration: none
+        &:hover
+            opacity: .8
+
+    > li
+        > a
+            color: $black-primary
+            background-color: #F0F0F0
+            font-family: "univers67", sans-serif
+            text-transform: uppercase
+            border: 1px solid $gray-quinary
+            padding: 15px 10px
+
+        > ul li a
+            color: $black-primary
+            font-size: 12px
+            background-color: $white-primary
+            padding: 10px
+            border: 1px solid $gray-quinary
+            margin-bottom: -1px
+
+    .active
+        > a
+            color: $white-primary
+            background-color: $black-primary
+            border: none
+            border-bottom: 2px solid $yellow-primary
+
+        .active
+            a
+                color: $black-primary
+                background-color: $yellow-primary
+                border: none
+                border: none
+                border-bottom: 2px solid $yellow-primary
+
+//
+// Form with labels and form control displayed in one line.
+//
+.parallel-form
+    button
+        border: none
+
+    .form-control
+        border: 1px solid $gray-quinary
+        color: $gray-quinary
+        box-shadow: none
+        @include border-top-radius(0)
+        @include border-bottom-radius(0)
+
+    .form-group
+        label
+            font-weight: normal
+
+    .form-group
+        &:after,
+        &:before
+            content: " "
+            display: table
+
+        &:after
+            clear: both
+
+    .controls
+        width: 60%
+        float: right
+
+    .form-group:nth-child(11)
+        .controls
+            width: 100%
+
+    .autocomplete-light-widget
+        width: 100%
+
+        .form-control
+            width: 100%
+
+    .form-control, .dropdown-toggle
+        background-color: rgba(0,0,0,0)
+
+    .sidebar-box
+        &.chat
+            background-image: url('../img/chat-box-bg.png')
+
+            a
+                color: $white-primary
+
+    .icon
+        display: inline-block
+        margin-bottom: -4px
+
+.no-link
+    cursor: default !important
+    text-decoration: none !important
+
+.form-control-light
+    border: 1px solid #DFDDDD
+    color: #878787
+    box-shadow: none
+    @include border-top-radius(0)
+    @include border-bottom-radius(0)
+
+    .dropdown-toggle
+        background-color: rgba(0, 0, 0, 0)
+        @include border-top-radius(0)
+        @include border-bottom-radius(0)
+
+.bootstrap-select
+    background-color: transparent
+
+    .caret
+        color: $black-primary
+
+        &:after
+            position: absolute
+            content: ""
+            left: -17px
+            top: -21px
+            height: 38px
+            width: 33px
+            background: $yellow-primary
+            z-index: -1
+
+    &.dropup
+        .caret:after
+            top: -17px
+
+.col-xs-15
+    width: 20%
+    float: left
+
+@include grid-media($tablet)
+    .col-sm-15
+        width: 20%
+        float: left
+
+@include grid-media($desktop)
+    .col-md-15
+        width: 20%
+        float: left
+
+    .slide-navigation
+        .col-sm-15
+            height: auto
+
+@include grid-media($desktop-xl)
+    .col-lg-15
+        width: 20%
+        float: left
+
+.form-fieldset
+    margin: 0 0 30px
+
+.radio-option
+    align-items: center
+    display: flex
+
+    &__item
+        margin: 0 15px 0 0
+
+.input-file
+  @include ellipsis
+  font-family: 'univers', sans-serif
+  font-size: 14px
+  line-height: 26px
+  text-transform: none
+  width: 100%

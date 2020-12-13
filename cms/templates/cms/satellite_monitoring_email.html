@@ -1,0 +1,17 @@
+{% extends "layout/base_email.html" %}
+{% block content %}
+<p>Hemos recibido mensaje de solicitud de monitoreo satelital de {{ contact.name }} &lt;{{ contact.email }}&gt;.</p>
+
+<ul>
+    <li><b>Contacto</b>: {{ contact.name }}</li>
+    <li><b>Correo</b>: {{ contact.email }}</li>
+    <li><b>Empresa</b>: {{ contact.company }}</li>
+    <li><b>Nombre de usuario</b>: {{ contact.username }}</li>
+    <li><b>Teléfono</b>: {{ contact.phone }}</li>
+    <li><b>Dirección</b>: {{ contact.address }} </li>
+    <li><b>Máquina(s) a monitorear</b>: {{ contact.machine }} </li>
+</ul>
+
+<p>Gracias por su interés, estaremos contactándole.</p>
+
+{% endblock %}

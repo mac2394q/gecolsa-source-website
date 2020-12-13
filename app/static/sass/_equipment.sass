@@ -1,0 +1,977 @@
+// New equipment
+// ------------------
+.new-equipment-list,
+.equipment-detail,
+.used-category
+    .slick-slide
+        padding: 0
+        position: relative
+        text-indent: 0
+        height: auto
+
+        p
+            margin-bottom: 0
+            color: #fff
+            text-transform: uppercase
+            text-align: center
+            background-color: $black-primary
+            font-family: "univers67",sans-serif
+            padding: 5px
+            text-overflow: ellipsis
+            overflow: hidden
+            white-space: nowrap
+            width: 100%
+
+        img
+            width: 100%
+
+    .slick-prev,
+    .slick-next
+        padding-top: 8px
+        position: absolute
+        background: transparent
+        border: none
+        content: ""
+        color: transparent
+
+        &:focus
+            border: none
+            outline: none
+            box-shadow: none
+
+    .slick-prev
+        text-align: right
+
+        &:after
+            content: ''
+            display: inline-block
+
+    .slick-next
+        text-align: left
+
+        &:after
+            content: ''
+            display: inline-block
+
+    .conventions
+        display: block
+
+        @include grid-media($tablet)
+            display: inline-block
+            margin-right: 10px
+
+    .conventions-name
+        font-family: 'univers67', sans-serif
+        font-size: 12px
+        display: inline-block
+        width: 70px
+        vertical-align: middle
+
+        @include grid-media($tablet)
+            width: auto
+
+    .conventions-circle
+        display: inline-block
+        border-radius: 50%
+        margin: 0 3px 0 0
+        vertical-align: middle
+        @include size(15px)
+
+        &.green
+            background-color: $green-primary
+        &.yellow
+            background-color: $yellow-primary
+        &.red
+            background-color: $red-primary
+
+
+.used-equipment-detail
+    .general-specifications-desktop
+        display: none
+
+        @include grid-media($desktop)
+            display: block
+
+.new-equipment-list
+    .gp-page-item .container
+        @include grid-media($tablet)
+            max-width: 690px
+
+        @include grid-media($desktop)
+            max-width: 910px
+
+    .slick-slide
+        border: 1px solid #e8e8e8
+        margin-right: 10px
+
+    .slick-prev, .slick-next
+        top: 25%
+        width: 25px
+        height: 40px
+
+    .slick-prev
+        left: -50px
+
+    .slick-next
+        right: -23px
+
+.new-equipment-list
+    &.container
+        padding: 0px
+
+.equipment-group-list
+    &.container
+        @include grid-media($desktop)
+            padding-right: 0px
+
+.equipment-detail
+    h4
+        margin: 0px
+
+    .equipment-images
+        margin: 20px auto 40px
+        position: relative
+        overflow: hidden
+
+        .equipment-image
+            width: 860px
+            height: 480px
+            overflow: hidden
+
+            img
+                @include position(absolute, 50% null null 50%)
+                transform: translate(-50%, -50%)
+
+                &.horizontal_image
+                    height: 100%
+                    width: auto
+
+                &.vertical_image
+                    width: 100%
+                    height: auto
+
+        .carousel-control
+            margin-top: -20px
+
+        .slick-dots
+            bottom: -40px
+
+    .table-responsive
+        border: none
+
+    .image-zoom
+        @include position(absolute, null null 40px 10px)
+
+    .images-slider
+        padding: 0 12px
+        margin-top: 30px
+
+    .mobile-info
+        display: block
+
+        @include grid-media($desktop)
+            display: none
+
+        .specification-list
+            &.no-xml-specification
+                margin: 40px 0px 20px
+                display: block
+
+                table
+                    margin-bottom: 0px
+
+    .general-specifications
+        width: 100%
+        margin-bottom: 20px
+        margin-top: 40px
+
+        tbody p
+            @include grid-media($tablet)
+                max-width: 179px
+
+            @include grid-media($desktop)
+                max-width: 170px
+
+            @include grid-media($desktop-xl)
+                max-width: 155px
+
+        tr th
+            background-color: $gray-quaternary
+            color: white
+            font-family: 'univers67', sans-serif
+            background-color: $black-primary
+            color: $white-primary
+            text-transform: uppercase
+            padding: 9px 20px
+            font-size: 16px
+            border: 1px solid $black-primary
+
+        tr td
+            padding: 10px
+            background-color: $white-primary
+            border: 1px solid $gray-senary
+
+            p
+                margin: 0
+
+    .yellow-link-box
+        display: block
+        margin-bottom: 20px
+
+    .specification-list
+        padding: 0
+        margin: 40px 0px
+
+        &.equipment-condition
+            margin-top: 20px
+            .title
+                font-family: 'univers67', sans-serif
+                background-color: $black-primary
+                color: $white-primary
+                text-transform: uppercase
+                padding: 9px 20px
+                font-size: 16px
+                font-weight: 700
+
+            .equipment-condition-group
+                .category
+                    font-family: "univers67", sans-serif
+                    text-transform: uppercase
+                    color: $gray-tertiary
+                    padding: 9px 20px
+                    border-width: 0px 1px 1px
+                    border-style: solid
+                    border-color: #DFDDDD
+                    background-color: $gray-quaternary
+                    position: relative
+                    cursor: pointer
+
+                    .icon
+                        padding: 2px
+                        position: absolute
+                        right: 20px
+                        top: 9px
+                        @include size(24px)
+                        transform: rotate(90deg)
+
+                    &.active
+                        background-color: $yellow-primary
+                        color: $black-primary
+
+                        .icon
+                            transform: rotate(-90deg)
+
+                .equipment-condition-items
+                    display: none
+
+                .convention-count
+                    text-align: right
+                    vertical-align: middle
+                    width: 150px
+
+                table
+                    margin-bottom: 0px
+                    margin-top: -1px
+
+                    tbody td
+                        border-width: 0px 0px 1px 0px
+
+        table
+            width: 100%
+
+            thead
+                th
+                    font-family: 'univers67', sans-serif
+                    background-color: $black-primary
+                    color: $white-primary
+                    text-transform: uppercase
+                    padding: 9px 20px
+                    font-size: 16px
+                    border: 1px solid $black-primary
+
+            tbody
+                border: 1px solid $gray-senary
+
+                td
+                    background-color: $white-primary
+                    padding: 9.5px 20px
+                    color: $black-primary
+                    border: 1px solid $gray-senary
+
+                    &.table-subtitle
+                        padding: 10px 20px
+                        font-family: 'univers67', sans-serif
+                        color: $gray-tertiary
+                        background-color: $gray-quaternary
+                        text-transform: uppercase
+                        font-weight: 400
+
+                    span
+                        color: $black-primary
+
+        &.no-xml-specification
+            display: none
+
+            @include grid-media($desktop)
+                display: block
+
+    .opportunity
+        margin: 0 auto 20px
+        background-image: url('../img/opportunity-box-bg.png')
+
+    .closest-office
+        margin: 0 auto
+
+    .city-select
+        margin-bottom: 20px
+
+    .autocomplete-light-widget
+        width: 100%
+
+        .form-control
+            width: 100%
+
+    .form-control,
+    .dropdown-toggle
+        background-color: rgba(0,0,0,0)
+
+    .table-header
+        background: $black-primary
+        margin-bottom: 0
+        padding: 9px 20px
+        text-transform: uppercase
+        color: $white-primary
+        font-family: "univers67", sans-serif
+
+    .slick-prev, .slick-next
+        width: 40px
+        height: 65px
+        top: 35%
+
+    .slick-prev
+        left: -12px
+
+    .slick-next
+        right: -10px
+
+
+    .gp-page-item
+        .container
+            max-width: 290px
+
+        h5
+            border-bottom: none
+            padding-bottom: 0px
+
+            &:after
+                background-color: $yellow-primary
+                content: ""
+                display: block
+                width: 35px
+                height: 3px
+                margin: 10px 0 25px
+
+    .subcategory-list
+        margin-top: 25px
+
+        li
+            border: 1px solid $gray-primary
+            padding: 0
+            position: relative
+            text-indent: 0
+
+            > a
+                display: table-cell
+                vertical-align: top
+                text-decoration: none
+
+                &:hover
+                    opacity: .8
+            p
+                margin-bottom: 0
+                color: $white-primary
+                text-transform: uppercase
+                text-align: center
+                background-color: black
+                font-family: "univers67", sans-serif
+                padding: 5px
+                text-overflow: ellipsis
+                overflow: hidden
+                white-space: nowrap
+                width: 210px
+
+
+            &:before
+                content: ""
+
+            &:hover
+                border: 1px solid $yellow-primary
+
+                p
+                    background-color: $yellow-primary
+                    color: $black-primary
+
+// Category
+// ----------------
+.new-category
+    margin-top: 40px
+
+    .category-list
+        text-align: center
+
+        li
+            border: 1px solid $gray-senary
+            overflow: hidden
+
+            &:hover
+                border-color: $black-primary
+
+                h2
+                    background-color: $black-primary
+                    color: $white-primary
+                    border-color: $black-primary
+
+            > a
+                text-decoration: none
+
+            h2
+                margin: 0
+                color: $gray-tertiary
+                text-transform: uppercase
+                text-align: center
+                background-color: $gray-quaternary
+                font-family: "univers67", sans-serif
+                padding: 10px 5px
+                text-overflow: ellipsis
+                overflow: hidden
+                white-space: nowrap
+                font-size: 14px
+                border-bottom: 1px solid $gray-senary
+
+// Go to top link.
+.go-to-top-wrapper
+    padding: 5px 0
+
+    a
+        color: $white-primary
+        text-transform: uppercase
+        font-size: 12px
+
+        span
+            margin-left: 5px
+
+// Used Main Page
+.used-equipment-category
+    .view-product-button
+        margin-top: 40px
+
+// Subcategory
+// ------------------
+.new-subcategory, .product-list,
+    .equipment-list, .product-list-boxes
+        text-align: center
+
+        > li
+            height: auto
+            position: relative
+            border: 1px solid $gray-senary
+            min-height: 518px
+
+            &:hover
+                border: 1px solid $black-primary
+
+                h2
+                    background-color: $black-primary
+                    color: $white-primary
+                    border-color: $black-primary
+
+            a
+                text-decoration: none
+                display: block
+                color: $black-primary
+
+            h2
+                margin: 0
+                color: $gray-tertiary
+                text-transform: uppercase
+                text-align: center
+                background-color: $gray-quaternary
+                font-family: "univers67", sans-serif
+                padding: 10px 5px
+                text-overflow: ellipsis
+                overflow: hidden
+                white-space: nowrap
+                font-size: 14px
+                border-bottom: 1px solid $gray-senary
+
+            > p
+                font-family: "univers67", sans-serif
+                text-transform: uppercase
+                font-size: 18px
+                margin-bottom: 20px
+
+        h2.xml
+            text-overflow: ellipsis
+            overflow: hidden
+            white-space: nowrap
+
+        ul
+            padding: 20px
+
+            li
+                padding: 10px 0px
+                text-align: left
+
+                strong
+                    color: $gray-tertiary
+                    height: 20px
+
+                strong,
+                span
+                    display: block
+                    white-space: nowrap
+                    overflow: hidden
+                    text-overflow: ellipsis
+
+                .view-more
+                    font-size: 18px
+                    text-transform: uppercase
+                    font-family: "univers67", sans-serif
+
+    .icon
+        display: inline-block
+
+.product-list
+    .store-box
+        .product-list-boxes
+            >li
+                min-height: 0px
+
+.new-subcategory
+    .new-equipments
+        > li
+            min-height: 458px
+
+@include grid-media($tablet)
+    .new-subcategory .equipment-list
+        text-align: left
+
+
+// Used category
+// ---------------
+.used-category
+    margin-top: 30px
+
+    @include grid-media($desktop)
+        margin-top: 60px
+
+    .grid-products-list
+        > li
+            float: none
+            display: inline-block
+            vertical-align: top
+
+            @include grid-media($tablet)
+                margin: 0px 20px 40px 16px
+
+    .category-list
+        text-align: center
+
+        @include grid-media($desktop)
+            text-align: left
+
+        li
+            border: 1px solid $gray-primary
+            padding: 0
+            position: relative
+            text-indent: 0
+            margin-right: 10px
+            margin-bottom: 10px
+
+            > a
+                display: table-cell
+                vertical-align: top
+                text-decoration: none
+
+                &:hover
+                    opacity: .8
+            p
+                margin-bottom: 0
+                color: $white-primary
+                text-transform: uppercase
+                text-align: center
+                background-color: black
+                font-family: "univers67", sans-serif
+                padding: 5px
+                text-overflow: ellipsis
+                overflow: hidden
+                white-space: nowrap
+                width: 210px
+
+            &:before
+                content: ""
+
+    .equipment-list
+        > li
+            height: auto
+            position: relative
+            border: 1px solid $gray-senary
+
+            a
+                text-decoration: none
+                display: block
+                color: $black-primary
+
+            h2
+                margin: 0
+                color: $black-primary
+                text-transform: uppercase
+                font-family: "univers67", sans-serif
+                padding: 0px 20px
+                font-size: 16px
+
+            .equipment-zoom
+                font-family: "univers67", sans-serif
+                text-transform: uppercase
+                text-align: center
+                font-size: 12px
+                padding: 1.5px 0px
+                background-color: $yellow-primary
+                display: block
+                color: $black-primary
+                width: 218px
+                margin: 0px auto 20px
+
+                &:hover
+                    background-color: $yellow-secondary
+
+        ul
+            padding: 0px 20px 20px
+
+            li
+                padding: 10px 0px
+
+                strong
+                    color: $gray-tertiary
+                    height: 20px
+
+                strong,
+                span
+                    display: block
+                    white-space: nowrap
+                    overflow: hidden
+                    text-overflow: ellipsis
+
+    .icon
+        display: inline-block
+
+    > .container
+        > .col-sm-9
+            z-index: 0
+
+    .slick-prev
+        left: -27px
+
+    .slick-next
+        right: -10px
+
+    .slick-prev, .slick-next
+        top: 20%
+        width: 27px
+        height: 66px
+
+    hr
+        margin-top: 10px
+        margin-bottom: 10px
+
+
+// Equipment modal
+// ---------------------
+.equipment-images-modal
+    background-color: rgba(0,0,0,.8)
+
+    .modal-body
+        max-height: 285px
+        overflow: hidden
+        padding: 15px 15px 15px 25px
+
+    .modal-content
+        border: 1px solid $yellow-primary
+        box-shadow: none
+        color: white
+        @include border-top-radius(0)
+        @include border-bottom-radius(0)
+
+    .close
+        opacity: 1
+        color: $yellow-primary
+        text-shadow: none
+        position: absolute
+        top: -24px
+        right: 0
+
+        &:active
+            outline: none
+
+    .images-slider
+        padding: 0 10px
+
+// Lightbox overwrites.
+.lb-outerContainer
+    background-color: $yellow-primary
+    @include border-top-radius(0px)
+    @include border-bottom-radius(0px)
+
+    .lb-container
+        padding: 2px
+
+.lb-data
+    .lb-close
+        margin-bottom: 5px
+
+    .lb-details
+        display: none
+
+.lightbox .lb-image
+    @include border-top-radius(0px)
+    @include border-bottom-radius(0px)
+
+.equipment-banner
+    width: 100%
+    background-size: cover
+    background-position: 50% 50%
+    position: relative
+    margin-bottom: 15px
+    text-decoration: none
+
+    a
+        text-decoration: none
+
+    .overlay
+        height: 100px
+        padding: 20px
+        display: table
+        background-color: rgba(0,0,0,.6)
+
+    h3
+        font-family: "univers67",sans-serifs
+        text-transform: uppercase
+        word-break: break-word
+        font-weight: bold
+        margin: 0
+        color: white
+        display: table-cell
+        vertical-align: middle
+        font-size: 17px
+
+        @include grid-media($desktop)
+            font-size: 19px
+
+.banner-block
+    a
+        text-decoration: none
+
+    &:hover
+        h3
+            text-decoration: none
+
+    .overlay
+        height: auto
+        display: block
+        text-align: center
+        padding: 25px
+
+        &:hover
+            h3
+                text-decoration: none
+
+        h3
+            display: block
+
+.used-equipment-filters
+    padding: 0px
+    max-width: 260px
+    margin: auto
+
+    @include grid-media($tablet)
+        padding: 0px 20px
+        max-width: none
+
+    .form-group
+        margin-bottom: 20px
+
+        @include grid-media($tablet)
+            margin-bottom: 0px
+
+    .yellow-link-box
+        width: 100%
+
+    .filter-option
+        font-size: 13px
+
+    p
+        margin-bottom: 15px
+        text-align: left
+
+    form
+        border-bottom: 1px solid $gray-secondary
+        margin-bottom: 20px
+        padding-bottom: 20px
+
+    .controls
+        position: relative
+        z-index: 1
+        background-color: #FFF
+
+    &.empty-result
+        padding: 15px
+        text-align: center
+
+        @include grid-media($tablet)
+            margin-left: 0
+
+.equipment-condition
+    margin-top: 40px
+
+    h2
+        font-size: 20px
+
+        @include grid-media($tablet)
+            font-size: 24px
+
+        @include grid-media($desktop)
+            font-size: 32px
+
+    h4
+        font-size: 16px
+
+        @include grid-media($tablet)
+            font-size: 20px
+
+        @include grid-media($desktop)
+            font-size: 24px
+
+    a
+        color: $black-primary
+
+    .nav-tabs
+        border-color: $gray-senary
+        padding: 20px 0 0
+
+        li
+            width: 100%
+
+            @include grid-media($tablet)
+                width: auto
+
+            &.active
+                a
+                    color: $black-primary
+                    background-color: $yellow-primary
+                    border-color: $yellow-primary
+
+        a
+            background-color: $white-primary
+            border: 1px solid $gray-senary
+            font-family: 'univers67', sans-serif
+            text-transform: uppercase
+            @include border-top-radius(0px)
+            @include border-bottom-radius(0px)
+
+    .tab-pane
+        display: none
+
+    .tab-pane.active
+        display: block
+
+    .sub-menu
+        h3
+            background-color: $yellow-primary
+            color: $black-primary
+            font-size: 14px
+
+            a
+                padding: 10px
+                display: block
+
+        .header,
+        .equipment
+            border-color: $gray-senary
+            border-style: solid
+            border-width: 1px 0
+
+        .header
+            margin-top: 20px
+
+            h4
+                display: inline-block
+                font-family: 'univers67', sans-serif
+                font-size: 16px
+                font-weight: 400
+                text-transform: none
+
+            .square
+                display: inline-block
+                height: 25px
+                margin-right: 10px
+                vertical-align: middle
+                width: 50px
+
+            .description
+                text-transform: uppercase
+
+        .specification
+            list-style: none
+            margin-top: 20px
+            padding: 0px
+
+            li
+                padding: 4px 10px
+
+                &:nth-child(odd)
+                    background-color: $gray-quaternary
+
+        .equipment
+            display: inline-block
+            font-family: 'univers67', sans-serif
+            font-size: 16px
+            font-weight: 400
+            min-width: 30%
+            padding: 5px 0px
+
+            span
+                background-color: $yellow-primary
+                display: inline-block
+                margin: 5px
+                padding: 2px 8px
+
+        a
+            &:hover, &:focus
+                text-decoration: none
+
+        .specification-content
+            width: 100%
+            display: block
+            position: relative
+
+            @include grid-media($tablet)
+                display: inline-block
+                height: 630px
+                vertical-align: middle
+                width: 35%
+
+        .specification-image
+            display: block
+            margin: 40px 0px
+            text-align: center
+            vertical-align: middle
+            width: 100%
+
+            @include grid-media($tablet)
+                display: inline-block
+                margin-top: 0
+                width: 64%
+
+            img
+                max-width: 100%
+

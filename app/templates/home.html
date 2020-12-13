@@ -1,0 +1,185 @@
+{% extends "layout/base.html" %}
+{% load thumbnail block_tags static %}
+
+{% block title %}Equipos para construcción{% endblock %}
+{% block meta_title %}Caterpillar Colombia{% endblock %}
+{% block meta_description %}Comercialización y alquiler de equipos para construcción de obras públicas, pavimentación, manejo de materiales, petróleos, transporte, y...{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'node_modules/slick-carousel/slick/slick.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'node_modules/slick-carousel/slick/slick-theme.css' %}">
+{% endblock %}
+
+{% block header_bg %}{% with 'slide_home'|get_fixed_block as block %}{{ block.image.url }}{% endwith %}{% endblock %}
+
+{% block header %}
+<div class="slider-container container">
+    <div class="slider slider-home">
+    {% for slide in home_sliders %}
+        <a href="{{ slide.url }}" {% if slide.is_external %}target="_blank"{% endif %}>
+        <div id="homeslide{{ forloop.counter }}"  class="slide">
+            <style type="text/css">
+                #homeslide{{ forloop.counter }} {
+                    background-image: url('{{ slide.image_mobile.url }}');
+                }
+                @media (min-width: 768px) {
+                    #homeslide{{ forloop.counter }} {
+                        background-image: url('{{ slide.image_tablet.url }}');
+                    }
+                }
+                @media (min-width: 994px) {
+                    #homeslide{{ forloop.counter }} {
+                        background-image: url('{{ slide.image_desktop.url }}');
+                    }
+                }
+            </style>
+        </div>
+        </a>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="home">
+    <div class="container">
+        <div class="feature-home-info grid-4">
+            <div class="col-grid">
+                <a href="{% url 'cms:page_detail' 'repuestos' %}">
+                    <div class="image" style="background-image: url({% static 'img/repuestos_cat_gecolsa.png' %});"></div>
+                    <div class="feature-content">
+                        <h2>Repuestos</h2>
+                        <p>Componentes y repuestos originales del fabricante Caterpillar. Precios asequibles con la calidad GECOLSA.</p>
+                        <a href="{% url 'cms:page_detail' 'repuestos' %}" class="link-icon">
+                            <div class="text">Ver más</div>
+                            <div class="circle">
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#arrow"></use>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-grid">
+                <a href="{% url 'cms:page_detail' 'renta' %}">
+                    <div class="image" style="background-image: url({% static 'img/rental_gecolsa_cat.png' %});"></div>
+                    <div class="feature-content">
+                        <h2>Renta</h2>
+                        <p>Comprarlo, ¡sí! Rentarlo, ¡mejor! El servicio de renta de equipos CAT usados, más eficiente del país, es propiedad de GECOLSA.</p>
+                        <a href="{% url 'cms:page_detail' 'renta' %}" class="link-icon">
+                            <div class="text">Ver más</div>
+                            <div class="circle">
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#arrow"></use>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-grid">
+                <a href="https://parts.cat.com/es/gecolsa" target="_blank">
+                    <div class="image" style="background-image: url({% static 'img/parts_cat_gecolsa_cat.png' %});"></div>
+                    <div class="feature-content">
+                        <h2>Parts.cat.com</h2>
+                        <p>A un clic, repuestos en sus manos. Compre desde casa calidad y confiabilidad.</p>
+                        <a href="https://parts.cat.com/es/gecolsa" target="_blank" class="link-icon">
+                            <div class="text">Ver más</div>
+                            <div class="circle">
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#arrow"></use>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-grid">
+                <a href="{% url 'cms:communication_by_category_list' 'promociones' %}">
+                    <div class="image" style="background-image: url({% static 'img/sale_gecolsa_cat.png' %});"></div>
+                    <div class="feature-content">
+                        <h2>Promociones</h2>
+                        <p>Renovamos permanentemente nuestras ofertas y descuentos para usted, nos gusta hablarle de respaldo con dos características: economía y calidad.</p>
+                        <a href="{% url 'cms:communication_by_category_list' 'promociones' %}" class="link-icon">
+                            <div class="text">Ver más</div>
+                            <div class="circle">
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#arrow"></use>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="featured-content">
+            <h4>Información destacada</h4>
+            {% if featured_content.0 %}
+            <div class="grid-2">
+                <div class="col-grid">
+                    <h3>{{ featured_content.0.title }}</h3>
+                    <p>{{ featured_content.0.summary }}</p>
+                </div>
+                <div class="col-grid">
+                    <div class="image" style="background-image: url({{ featured_content.0.image.url }});"></div>
+                </div>
+            </div>
+            <div class="yellow-link">
+                <a class="yellow-link-box" href="{{ featured_content.0.url }}" {% if featured_content.0.is_external %}target="_blank"{% endif %}>
+                    <span>Ver más</span>
+                    <svg class="icon">
+                        <use xlink:href="{% static 'svg/icons.svg' %}#arrow-btn"></use>
+                    </svg>
+                </a>
+            </div>
+            {% endif %}
+            {% if featured_content.1 %}
+            <div class="grid-2">
+                <div class="col-grid">
+                    <div class="image" style="background-image: url({{ featured_content.1.image.url }});"></div>
+                </div>
+                <div class="col-grid">
+                    <h3>{{ featured_content.1.title }}</h3>
+                    <p>{{ featured_content.1.summary }}</p>
+                </div>
+            </div>
+            <div class="yellow-link-rigth">
+                <a class="yellow-link-box" href="{{ featured_content.1.url }}" {% if featured_content.1.is_external %}target="_blank"{% endif %}>
+                    <span>Ver más</span>
+                    <svg class="icon">
+                        <use xlink:href="{% static 'svg/icons.svg' %}#arrow-btn"></use>
+                    </svg>
+                </a>
+            </div>
+            {% endif %}
+            {% if featured_content.2 %}
+            <div class="grid-2">
+                <div class="col-grid">
+                    <h3>{{ featured_content.2.title }}</h3>
+                    <p>{{ featured_content.2.summary }}</p>
+                </div>
+                <div class="col-grid">
+                    <div class="image" style="background-image: url({{ featured_content.2.image.url }});"></div>
+                </div>
+            </div>
+            <div class="yellow-link">
+                <a class="yellow-link-box" href="{{ featured_content.2.url }}" {% if featured_content.2.is_external %}target="_blank"{% endif %}>
+                    <span>Ver más</span>
+                    <svg class="icon">
+                        <use xlink:href="{% static 'svg/icons.svg' %}#arrow-btn"></use>
+                    </svg>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'node_modules/slick-carousel/slick/slick.min.js' %}"></script>
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
